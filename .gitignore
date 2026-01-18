@@ -301,6 +301,13 @@ FakesAssemblies/
 .ntvs_analysis.dat
 node_modules/
 
+<<<<<<< HEAD
+=======
+# Build output
+dist/
+.wrangler/
+
+>>>>>>> a423c78 (1)
 # Visual Studio 6 build log
 *.plg
 
