@@ -23,8 +23,12 @@ import ScrollToTopButton from '../components/ScrollToTopButton';
 
 const ContactPage = () => {
   const [formConfigs, setFormConfigs] = useState<any>(null);
+  const [allConfigs, setAllConfigs] = useState<any>(null);
   React.useEffect(() => {
-    import('../../shared/form-configs.json').then(mod => setFormConfigs(mod.default || mod));
+    import('../../shared/form-configs.json').then(mod => {
+      setFormConfigs(mod.default?.contact_form || mod.contact_form || null);
+      setAllConfigs(mod.default || mod);
+    });
   }, []);
   const [status, setStatus] = useState<{ type: 'success' | 'error' | null; message: string }>({
     type: null,
@@ -33,9 +37,13 @@ const ContactPage = () => {
 
   const handleSubmit = async (formData: any) => {
     try {
+      // Adiciona Authorization se houver token
+      const token = localStorage.getItem('access_token');
+      const headers: any = { 'Content-Type': 'application/json' };
+      if (token) headers['Authorization'] = `Bearer ${token}`;
       const response = await fetch('/api/forms/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers,
         body: JSON.stringify({ formId: 'contact_form', ...formData }),
       });
       if (!response.ok) {
@@ -180,16 +188,18 @@ const ContactPage = () => {
                     </div>
                   </div>
                 ) : (
-                  <CustomForm
-                  id="contact_form"
-                  schema={allConfigs.contact_form.jsonSchema}
-                  onSubmit={handleSubmit}
-                  theme={contactFormTheme}
-                  labels={{
-                    submit: "Enviar Mensagem",
-                    submitting: "Enviando..."
-                  }}
-                />
+                  formConfigs && (
+                    <CustomForm
+                      id="contact_form"
+                      schema={formConfigs.jsonSchema}
+                      onSubmit={handleSubmit}
+                      theme={contactFormTheme}
+                      labels={{
+                        submit: "Enviar Mensagem",
+                        submitting: "Enviando..."
+                      }}
+                    />
+                  )
                 )}
               </div>
             </div>

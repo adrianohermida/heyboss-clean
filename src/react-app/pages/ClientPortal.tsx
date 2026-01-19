@@ -43,7 +43,8 @@ const ClientPortal: React.FC = () => {
   // Função genérica para buscar dados de cada módulo
   const fetchData = async (modulo: string) => {
     setLoading(true);
-    const authHeaders = access_token ? { 'Authorization': `Bearer ${access_token}` } : {};
+    let token = access_token || localStorage.getItem('access_token');
+    const authHeaders = token ? { 'Authorization': `Bearer ${token}` } : {};
     try {
       if (modulo === 'processos') {
         const res = await fetch('/api/processos/me', { headers: { 'Content-Type': 'application/json', ...authHeaders } });
@@ -72,7 +73,8 @@ const ClientPortal: React.FC = () => {
   useEffect(() => {
     if (activeTab === 'agenda') {
       setLoadingAppointments(true);
-      const authHeaders = access_token ? { 'Authorization': `Bearer ${access_token}` } : {};
+      let token = access_token || localStorage.getItem('access_token');
+      const authHeaders = token ? { 'Authorization': `Bearer ${token}` } : {};
       fetch('/api/my-appointments', { headers: { 'Content-Type': 'application/json', ...authHeaders } })
         .then(res => res.ok ? res.json() : [])
         .then(setAppointments)
@@ -83,7 +85,9 @@ const ClientPortal: React.FC = () => {
   const handleExportData = async () => {
     setExporting(true);
     try {
-      const res = await fetch('/api/users/personal-data');
+      let token = access_token || localStorage.getItem('access_token');
+      const headers = token ? { 'Authorization': `Bearer ${token}` } : {};
+      const res = await fetch('/api/users/personal-data', { headers });
       if (res.ok) {
         const data = await res.json();
         const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
@@ -100,8 +104,9 @@ const ClientPortal: React.FC = () => {
 
   useEffect(() => {
     // Busca dados do usuário autenticado, só se houver token
-    if (!access_token) return;
-    const authHeaders = { 'Authorization': `Bearer ${access_token}`, 'Content-Type': 'application/json' };
+    let token = access_token || localStorage.getItem('access_token');
+    if (!token) return;
+    const authHeaders = token ? { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } : { 'Content-Type': 'application/json' };
     fetch('/api/users/me', { headers: authHeaders })
       .then(async res => {
         if (res.ok) {
@@ -538,7 +543,8 @@ const TicketsModule = () => {
 
   const fetchTickets = async () => {
     setLoading(true);
-    const authHeaders = access_token ? { 'Authorization': `Bearer ${access_token}` } : {};
+    let token = access_token || localStorage.getItem('access_token');
+    const authHeaders = token ? { 'Authorization': `Bearer ${token}` } : {};
     try {
       const res = await fetch('/api/tickets', { headers: { 'Content-Type': 'application/json', ...authHeaders } });
       if (res.ok) setTickets(await res.json());
@@ -550,7 +556,8 @@ const TicketsModule = () => {
   };
 
   const fetchMessages = async (id: number) => {
-    const authHeaders = access_token ? { 'Authorization': `Bearer ${access_token}` } : {};
+    let token = access_token || localStorage.getItem('access_token');
+    const authHeaders = token ? { 'Authorization': `Bearer ${token}` } : {};
     try {
       const res = await fetch(`/api/tickets/${id}/messages`, { headers: { 'Content-Type': 'application/json', ...authHeaders } });
       if (res.ok) setMessages(await res.json());
@@ -574,7 +581,8 @@ const TicketsModule = () => {
   const handleSendReply = async () => {
     if (!reply.trim() || sendingReply) return;
     setSendingReply(true);
-    const authHeaders = access_token ? { 'Authorization': `Bearer ${access_token}` } : {};
+    let token = access_token || localStorage.getItem('access_token');
+    const authHeaders = token ? { 'Authorization': `Bearer ${token}` } : {};
     try {
       const res = await fetch(`/api/tickets/${selectedTicket.id}/reply`, {
         method: 'POST',
