@@ -19,14 +19,6 @@ const LogoHM = ({ size = 48, rounded = true, bg = 'var(--color-brand)' }: { size
     </div>
   );
 };
-
-const Header = () => {
-  const { user, logout } = useAuth();
-  const navigate = useNavigate();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
-  const adminEmails = [
     'contato@hermidamaia.adv.br',
     'adrianohermida@gmail.com',
     'admin@example.com',
