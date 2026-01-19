@@ -1,18 +1,30 @@
 
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../../../styles/ThemeProvider';
 
 const FinalCTA: React.FC = () => {
-  const { mode } = useTheme();
-  const bg = mode === 'clear' ? 'bg-brand-primary' : 'bg-brand-primary';
-  const text = mode === 'clear' ? 'text-white' : 'text-white';
+  const { mode, theme } = useTheme();
+  // Fundo premium com gradiente institucional e sombra suave
+  const bg = mode === 'clear'
+    ? 'bg-[linear-gradient(135deg,var(--color-bg),var(--color-brand-primary)_60%,var(--color-brand-accent)_100%)]'
+    : 'bg-[linear-gradient(135deg,var(--color-brand-dark),var(--color-brand-primary)_60%,var(--color-brand-accent)_100%)]';
+  const shadow = 'shadow-[0_8px_32px_0_rgba(0,0,0,0.18)]';
+  const text = 'text-white';
   return (
-    <section className={`py-24 ${bg} relative overflow-hidden`}>
-      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_70%_70%,#ffffff20_0%,transparent_50%)]" />
+    <section
+      className={`py-24 ${bg} ${shadow} relative overflow-hidden flex items-center justify-center`}
+      aria-label="Chamada final institucional"
+    >
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div className="w-full h-full bg-[radial-gradient(circle_at_70%_70%,rgba(255,255,255,0.08)_0%,transparent_60%)]" />
+      </div>
       <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-        <h2 className={`text-3xl sm:text-5xl font-extrabold mb-8 ${text}`}>Fale com um Advogado Especialista em Superendividamento Agora</h2>
-        <p className="text-white/90 text-lg mb-12 max-w-2xl mx-auto">
+        <h2 className="text-4xl sm:text-5xl font-extrabold mb-8 tracking-tight leading-tight text-white drop-shadow-lg">
+          Fale com um Advogado Especialista em Superendividamento Agora
+        </h2>
+        <p className="text-white/80 text-lg mb-12 max-w-2xl mx-auto font-medium">
           Não deixe as dívidas controlarem sua vida. Nossa advocacia especializada
           em superendividamento e redução de dívidas está pronta para lutar por você.
         </p>
@@ -21,13 +33,16 @@ const FinalCTA: React.FC = () => {
             href="https://wa.me/5551996032004"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-brand-dark text-white px-10 py-5 rounded-2xl font-extrabold text-xl shadow-2xl transition-all hover:scale-105 active:scale-95 text-center"
+            className="bg-brand-primary text-white px-10 py-5 rounded-2xl font-extrabold text-xl shadow-xl shadow-brand-primary/30 transition-all hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-brand-primary/40 focus:ring-offset-2 text-center"
+            style={{ boxShadow: '0 4px 24px 0 var(--color-brand-primary)' }}
+            aria-label="Falar no WhatsApp"
           >
             Falar no WhatsApp
           </a>
           <Link
             to="/appointments"
-            className="bg-white text-brand-primary px-10 py-5 rounded-2xl font-extrabold text-xl shadow-2xl transition-all hover:scale-105 active:scale-95 text-center"
+            className="bg-white text-brand-primary px-10 py-5 rounded-2xl font-extrabold text-xl shadow-xl shadow-brand-primary/20 transition-all hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-brand-primary/30 focus:ring-offset-2 text-center"
+            aria-label="Agendar avaliação"
           >
             Agendar avaliação
           </Link>
