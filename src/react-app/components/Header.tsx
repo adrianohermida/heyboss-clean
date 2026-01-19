@@ -1,5 +1,4 @@
-
-
+//
 import React, { useState, useRef, useEffect } from 'react';
 import { useTheme } from '../../styles/ThemeProvider';
 import { Link, useNavigate } from 'react-router-dom';

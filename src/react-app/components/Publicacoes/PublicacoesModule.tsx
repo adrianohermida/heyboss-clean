@@ -27,9 +27,9 @@ import {
 } from 'lucide-react';
 import { CustomForm } from '../CustomForm';
 import { contactFormTheme } from '../CustomForm/themes';
-
 import { cn } from '../../utils';
 
+function PublicacoesModule() {
   const [formConfigs, setFormConfigs] = useState<any>(null);
   useEffect(() => {
     import('../../../shared/form-configs.json').then(mod => setFormConfigs(mod.default || mod));
@@ -386,4 +386,7 @@ import { cn } from '../../utils';
       )}
     </div>
   );
+
 };
+
+export default PublicacoesModule;

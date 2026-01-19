@@ -28,7 +28,7 @@ import {
 import { CustomForm } from '../CustomForm';
 import { contactFormTheme } from '../CustomForm/themes';
 
-import { BlogEditor } from './BlogEditor';
+import BlogEditor from './BlogEditor';
 
 export const BlogManagementModule: React.FC = () => {
   const [view, setView] = useState<'list' | 'editor' | 'categories'>('list');

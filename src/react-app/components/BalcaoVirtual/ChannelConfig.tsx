@@ -4,7 +4,7 @@
  *             Utiliza CustomForm para edição de credenciais e webhooks.
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { 
   Plus, 
   Globe, 
@@ -21,9 +21,7 @@ import {
 import { CustomForm } from '../CustomForm';
 import { contactFormTheme } from '../CustomForm/themes';
 
-
-import { useMemo } from 'react';
-
+function ChannelConfig() {
   const [formConfigs, setFormConfigs] = useState<any>(null);
   useEffect(() => {
     import('../../../shared/form-configs.json').then(mod => setFormConfigs(mod.default || mod));

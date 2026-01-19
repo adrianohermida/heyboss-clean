@@ -23,7 +23,7 @@ import {
 import { CustomForm } from '../CustomForm';
 import { contactFormTheme } from '../CustomForm/themes';
 
-
+function QueueConfig() {
   const [formConfigs, setFormConfigs] = useState<any>(null);
   useEffect(() => {
     import('../../../shared/form-configs.json').then(mod => setFormConfigs(mod.default || mod));
