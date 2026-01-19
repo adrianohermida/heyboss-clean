@@ -3,8 +3,7 @@ import { AlertCircle, CheckCircle2, MessageCircle, Zap } from 'lucide-react';
 import { useTheme } from '../../../styles/ThemeProvider';
 
 const Calculator: React.FC = () => {
-  const { mode } = useTheme();
-  const bg = mode === 'clear' ? 'bg-[var(--color-cardElevated)]' : 'bg-[var(--color-brand)]';
+  useTheme();
   const [formData, setFormData] = React.useState({
     totalDebt: '',
     monthlyInstallment: '',
@@ -68,10 +67,10 @@ const Calculator: React.FC = () => {
   };
 
   return (
-    <section id="calculadora" className={`py-24 ${bg} relative overflow-hidden`}>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-primary/5 rounded-full blur-[120px] pointer-events-none" />
+    <section id="calculadora" className="py-24 bg-[var(--color-bg-alt)] relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[var(--color-brand-primary)]/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="max-w-4xl mx-auto px-4 relative z-10">
-        <div className={`rounded-[2.5rem] p-8 sm:p-12 shadow-2xl ${mode === 'clear' ? 'bg-[var(--color-cardElevated)] border border-gray-200' : 'bg-[var(--color-card)] border border-white/10'}`}>
+        <div className="rounded-[2.5rem] p-8 sm:p-12 shadow-2xl bg-[var(--color-cardElevated)] border border-[var(--color-border)]/10">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[var(--color-brand)] mb-4">Calculadora de Superendividamento: Veja como Eliminar Dívidas</h2>
             <p className="text-lg text-[var(--color-text)]/80">Descubra em minutos se você tem direito à Lei 14.181/2021 para renegociar dívidas até 70% e sair do sufoco financeiro.</p>
