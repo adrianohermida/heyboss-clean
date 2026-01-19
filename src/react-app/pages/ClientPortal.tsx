@@ -93,24 +93,35 @@ const ClientPortal: React.FC = () => {
   };
 
   useEffect(() => {
-    // Busca dados do usuário autenticado
-    const authHeaders = access_token ? { 'Authorization': `Bearer ${access_token}` } : {};
-    fetch('/api/users/me', {
-      headers: {
-        'Content-Type': 'application/json',
-        ...authHeaders
-      }
-    })
-      .then(res => res.ok ? res.json() : null)
-      .then(data => {
-        if (data) setUser(data);
+    // Busca dados do usuário autenticado, só se houver token
+    if (!access_token) return;
+    const authHeaders = { 'Authorization': `Bearer ${access_token}`, 'Content-Type': 'application/json' };
+    fetch('/api/users/me', { headers: authHeaders })
+      .then(async res => {
+        if (res.ok) {
+          const data = await res.json();
+          setUser(data);
+        } else {
+          setUser(null);
+          // Opcional: logar erro para debug
+          // console.error('Erro ao buscar usuário:', res.status);
+        }
+      })
+      .catch(() => {
+        setUser(null);
       });
-    fetch('/api/users/summary', {
-      headers: {
-        'Content-Type': 'application/json',
-        ...authHeaders
-      }
-    }).then(res => res.ok && res.json().then(setSummary));
+    fetch('/api/users/summary', { headers: authHeaders })
+      .then(async res => {
+        if (res.ok) {
+          const data = await res.json();
+          setSummary(data);
+        } else {
+          setSummary({ processos: 0, faturas: 0, tickets: 0, appointments: 0 });
+        }
+      })
+      .catch(() => {
+        setSummary({ processos: 0, faturas: 0, tickets: 0, appointments: 0 });
+      });
   }, [access_token]);
 
   return (
