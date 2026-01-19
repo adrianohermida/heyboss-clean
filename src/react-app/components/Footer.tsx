@@ -5,7 +5,7 @@ import { colors } from '../../styles/theme';
 export default function Footer() {
   const { mode } = useTheme();
   const bg = mode === 'clear' ? 'bg-[var(--color-cardElevated)]' : 'bg-[var(--color-brand)]';
-  const text = mode === 'clear' ? 'text-[var(--color-brand)]' : 'text-[var(--color-white)]';
+  const text = mode === 'clear' ? 'text-[var(--color-text)]' : 'text-[var(--color-white)]';
   const link = 'hover:text-[var(--color-accent)] focus-visible:text-[var(--color-accent)] transition-colors';
   return (
     <footer
@@ -31,16 +31,16 @@ export default function Footer() {
         </div>
         {/* Aviso legal */}
         <div className="flex-1 flex flex-col gap-2 items-center md:items-end">
-          <p className={`text-xs md:text-sm font-medium ${text} opacity-80`}>
+          <p className={`text-xs md:text-sm font-medium ${text} opacity-95`}>
             Hermida Maia Advocacia é um escritório de advocacia especializado em superendividamento e defesa do consumidor. Nenhuma informação deste site constitui aconselhamento jurídico.
           </p>
-          <p className={`text-xs md:text-sm font-medium ${text} opacity-70`}>
+          <p className={`text-xs md:text-sm font-medium ${text} opacity-90`}>
             O uso deste site implica aceitação dos <a href="/politica-privacidade" className={`underline ${link}`}>termos de uso</a>.
           </p>
         </div>
       </div>
       <div className="max-w-7xl mx-auto px-4 mt-8 border-t border-white/10 pt-4 flex flex-col md:flex-row items-center justify-between gap-2">
-        <p className={`text-xs md:text-sm font-semibold tracking-wide ${text} opacity-90`}>
+        <p className={`text-xs md:text-sm font-semibold tracking-wide ${text} opacity-100`}>
           © 2024 Hermida Maia Advocacia. Todos os direitos reservados.
         </p>
       </div>
