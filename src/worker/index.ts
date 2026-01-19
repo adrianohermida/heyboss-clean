@@ -1,3 +1,18 @@
+// DEV-ONLY: Mock /api/users/me if not authenticated (before real handler)
+if (process.env.NODE_ENV === 'development' || process.env.LOCAL_DEV === 'true') {
+  app.get("/api/users/me", async (c) => {
+    // If user is already set (auth), skip to real handler
+    const user = c.get && c.get("user");
+    if (user && typeof user === 'object' && 'email' in user) return;
+    // Return minimal mock user
+    return c.json({
+      email: "mock@heyboss.dev",
+      name: "Mock User",
+      isAdmin: false,
+      id: "mock-user-id"
+    });
+  });
+}
 import { Hono, Context } from "hono";
 import { getCookie, setCookie } from "hono/cookie";
 import {
