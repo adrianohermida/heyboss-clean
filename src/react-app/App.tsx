@@ -4,6 +4,7 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import { lazy, Suspense } from 'react'
 
 import Header from './components/Header'
+import Footer from './components/Footer'
 // Lazy load components para melhor performance
 const HomePage = lazy(() => import('./pages/HomePage'))
 const LoginPage = lazy(() => import('./pages/LoginPage'))
@@ -37,11 +38,13 @@ const LoadingFallback = () => (
 
 export default function App() {
   const location = useLocation()
-  const hideHeaderPaths = ['/login']
+  const hideHeaderPaths = ['/login', '/register', '/forgot-password', '/reset-password']
+  const hideFooterPaths = ['/login', '/register', '/forgot-password', '/reset-password']
   const showHeader = !hideHeaderPaths.includes(location.pathname)
+  const showFooter = !hideFooterPaths.includes(location.pathname)
 
   return (
-    <div className="min-h-screen bg-slate-900">
+    <div style={{ minHeight: '100vh', background: 'var(--color-bg)', color: 'var(--color-text)' }}>
       {showHeader && <Header />}
       <Suspense fallback={<LoadingFallback />}>
         <Routes>
@@ -72,6 +75,7 @@ export default function App() {
           </Route>
         </Routes>
       </Suspense>
+      {showFooter && <Footer />}
     </div>
   )
 }
