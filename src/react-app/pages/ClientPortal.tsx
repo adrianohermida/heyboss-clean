@@ -10,12 +10,68 @@ import Header from '../components/Header';
 import { useAuth } from '@hey-boss/users-service/react';
 import ClientPortalSidebar from '../components/ClientPortal/ClientPortalSidebar';
 import ClientPortalOverview from '../components/ClientPortal/ClientPortalOverview';
+import { Link } from 'react-router-dom';
+import { clsx } from '../utils';
+import {
+  Loader2, Scale, CheckCircle2, Clock, CreditCard, Download, FileText, ExternalLink, AlertCircle, Wallet, CalendarIcon, MessageSquare, ShieldCheck, Plus, Send
+} from 'lucide-react';
+import { CustomForm } from '../components/CustomForm/CustomForm';
+import { contactFormTheme } from '../components/CustomForm/themes';
+import allConfigs from '../shared/form-configs.json';
+import { cn } from '../utils';
 
 const ClientPortal: React.FC = () => {
-  const { user } = useAuth();
+  const { user: authUser } = useAuth();
+  const [user, setUser] = useState<any>(authUser);
   const [activeTab, setActiveTab] = useState('overview');
   const [summary, setSummary] = useState({ processos: 0, faturas: 0, tickets: 0, appointments: 0 });
   const [exporting, setExporting] = useState(false);
+  // Estados para cada módulo
+  const [processos, setProcessos] = useState<any[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [faturas, setFaturas] = useState<any[]>([]);
+  const [planos, setPlanos] = useState<any[]>([]);
+  const [documentos, setDocumentos] = useState<any[]>([]);
+  const [appointments, setAppointments] = useState<any[]>([]);
+  const [loadingAppointments, setLoadingAppointments] = useState(false);
+
+  // Função genérica para buscar dados de cada módulo
+  const fetchData = async (modulo: string) => {
+    setLoading(true);
+    try {
+      if (modulo === 'processos') {
+        const res = await fetch('/api/processos/me');
+        setProcessos(res.ok ? await res.json() : []);
+      } else if (modulo === 'financeiro') {
+        const res = await fetch('/api/faturas/me');
+        setFaturas(res.ok ? await res.json() : []);
+      } else if (modulo === 'plano') {
+        const res = await fetch('/api/planos/me');
+        setPlanos(res.ok ? await res.json() : []);
+      } else if (modulo === 'documentos') {
+        const res = await fetch('/api/documentos/me');
+        setDocumentos(res.ok ? await res.json() : []);
+      }
+    } catch {
+      if (modulo === 'processos') setProcessos([]);
+      if (modulo === 'financeiro') setFaturas([]);
+      if (modulo === 'plano') setPlanos([]);
+      if (modulo === 'documentos') setDocumentos([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Exemplo: buscar agendamentos
+  useEffect(() => {
+    if (activeTab === 'agenda') {
+      setLoadingAppointments(true);
+      fetch('/api/my-appointments')
+        .then(res => res.ok ? res.json() : [])
+        .then(setAppointments)
+        .finally(() => setLoadingAppointments(false));
+    }
+  }, [activeTab]);
 
   const handleExportData = async () => {
     setExporting(true);
@@ -36,7 +92,23 @@ const ClientPortal: React.FC = () => {
   };
 
   useEffect(() => {
-    fetch('/api/users/summary').then(res => res.ok && res.json().then(setSummary));
+    // Busca dados do usuário autenticado
+    fetch('/api/users/me', {
+      headers: {
+        'Content-Type': 'application/json',
+        // Adicione Authorization se necessário
+      }
+    })
+      .then(res => res.ok ? res.json() : null)
+      .then(data => {
+        if (data) setUser(data);
+      });
+    fetch('/api/users/summary', {
+      headers: {
+        'Content-Type': 'application/json',
+        // Adicione Authorization se necessário
+      }
+    }).then(res => res.ok && res.json().then(setSummary));
   }, []);
 
   return (

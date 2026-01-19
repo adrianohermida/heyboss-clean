@@ -15,21 +15,22 @@ import { useAuth } from '@hey-boss/users-service/react';
 // Componente de logo adaptável
 export function LogoHM({ size = 48, rounded = true, bg = 'var(--color-brand)' }: { size?: number, rounded?: boolean, bg?: string }) {
   return (
-    <div
-      style={{
-        width: size,
-        height: size,
-        background: bg,
-        borderRadius: rounded ? 16 : 0,
-        overflow: 'hidden',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
+    <header
+      className={`w-full z-30 border-b border-white/5 bg-white/90 dark:bg-brand-dark/95 backdrop-blur-xl transition-colors duration-300 ${isMobileMenuOpen ? 'shadow-lg' : ''}`}
     >
-      <img
-        src="https://heyboss.heeyo.ai/user-assets/logo_lzI6JHzO.png"
-        alt="Logo HM Advocacia"
+      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+        {/* Logo */}
+        <Link to="/" className={`flex items-center gap-2 font-extrabold text-2xl tracking-tight ${mode === 'clear' ? '' : 'text-brand-primary'}`}
+          style={mode === 'clear' ? { color: '#394a66' } : {}}>
+          <span className={mode === 'clear' ? '' : 'text-brand-primary'} style={mode === 'clear' ? { color: '#394a66' } : {}}>Hermida Maia</span>
+        </Link>
+        {/* Desktop Nav */}
+        <nav className="hidden lg:flex items-center gap-8">
+          <Link to="/about2" className={`font-semibold text-base hover:underline ${mode === 'clear' ? '' : 'text-brand-primary'}`} style={mode === 'clear' ? { color: '#394a66' } : {}}>Sobre</Link>
+          <a href="/#serviços" className={`font-semibold text-base hover:underline ${mode === 'clear' ? '' : 'text-brand-primary'}`} style={mode === 'clear' ? { color: '#394a66' } : {}}>Serviços</a>
+          <Link to="/blog" className={`font-semibold text-base hover:underline ${mode === 'clear' ? '' : 'text-brand-primary'}`} style={mode === 'clear' ? { color: '#394a66' } : {}}>Blog</Link>
+          <Link to="/contact2" className={`font-semibold text-base hover:underline ${mode === 'clear' ? '' : 'text-brand-primary'}`} style={mode === 'clear' ? { color: '#394a66' } : {}}>Contato</Link>
+        </nav>
         style={{ width: '80%', height: '80%', objectFit: 'contain', borderRadius: rounded ? 12 : 0 }}
       />
     </div>
@@ -182,20 +183,18 @@ const Header = () => {
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-20 bg-brand-dark/95 backdrop-blur-xl z-40 animate-in slide-in-from-top duration-300 border-t border-white/5">
+        <div className={`lg:hidden fixed inset-0 top-20 ${mode === 'clear' ? '' : 'bg-brand-dark/95'} ${mode === 'clear' ? 'bg-white/95' : ''} backdrop-blur-xl z-40 animate-in slide-in-from-top duration-300 border-t border-white/5`}>
           <nav className="flex flex-col p-6 gap-6 overflow-y-auto max-h-[calc(100vh-5rem)]">
-            <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-xl text-white font-bold border-b border-white/5 pb-4">Início</Link>
-            <Link to="/about2" onClick={() => setIsMobileMenuOpen(false)} className="text-xl text-white font-bold border-b border-white/5 pb-4">Sobre</Link>
-            <a href="/#serviços" onClick={() => setIsMobileMenuOpen(false)} className="text-xl text-white font-bold border-b border-white/5 pb-4">Serviços</a>
-            <Link to="/blog" onClick={() => setIsMobileMenuOpen(false)} className="text-xl text-white font-bold border-b border-white/5 pb-4">Blog</Link>
-            <Link to="/contact2" onClick={() => setIsMobileMenuOpen(false)} className="text-xl text-white font-bold border-b border-white/5 pb-4">Contato</Link>
-            
+            <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b border-white/5 pb-4" style={mode === 'clear' ? { color: '#394a66' } : { color: '#fff' }}>Início</Link>
+            <Link to="/about2" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b border-white/5 pb-4" style={mode === 'clear' ? { color: '#394a66' } : { color: '#fff' }}>Sobre</Link>
+            <a href="/#serviços" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b border-white/5 pb-4" style={mode === 'clear' ? { color: '#394a66' } : { color: '#fff' }}>Serviços</a>
+            <Link to="/blog" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b border-white/5 pb-4" style={mode === 'clear' ? { color: '#394a66' } : { color: '#fff' }}>Blog</Link>
+            <Link to="/contact2" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold border-b border-white/5 pb-4" style={mode === 'clear' ? { color: '#394a66' } : { color: '#fff' }}>Contato</Link>
             {!user && (
               <Link to="/login" onClick={() => setIsMobileMenuOpen(false)} className="bg-brand-primary text-white text-center py-4 rounded-xl font-bold text-lg mt-4">
                 Fazer Login
               </Link>
             )}
-            
             {user && (
               <div className="space-y-4 pt-4 border-t border-white/10">
                 <div className="flex items-center gap-3 px-2">
@@ -203,8 +202,8 @@ const Header = () => {
                     {user.name?.[0] || user.email?.[0].toUpperCase()}
                   </div>
                   <div>
-                    <p className="text-white font-bold text-sm">{user.name || user.email.split('@')[0]}</p>
-                    <p className="text-white/40 text-xs">{user.email}</p>
+                    <p className="font-bold text-sm" style={mode === 'clear' ? { color: '#394a66' } : { color: '#fff' }}>{user.name || user.email.split('@')[0]}</p>
+                    <p className="text-xs" style={mode === 'clear' ? { color: '#394a66', opacity: 0.4 } : { color: '#fff', opacity: 0.4 }}>{user.email}</p>
                   </div>
                 </div>
                 <div className="grid grid-cols-1 gap-2">
@@ -221,7 +220,8 @@ const Header = () => {
                   <Link 
                     to="/account" 
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="flex items-center gap-3 p-3 rounded-xl bg-white/5 text-white/70"
+                    className="flex items-center gap-3 p-3 rounded-xl bg-white/5"
+                    style={mode === 'clear' ? { color: '#394a66' } : { color: '#fff', opacity: 0.7 }}
                   >
                     <LayoutDashboard size={20} />
                     Meu Painel (Cliente)
@@ -229,7 +229,8 @@ const Header = () => {
                   <Link 
                     to="/perfil" 
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="flex items-center gap-3 p-3 rounded-xl bg-white/5 text-white/70"
+                    className="flex items-center gap-3 p-3 rounded-xl bg-white/5"
+                    style={mode === 'clear' ? { color: '#394a66' } : { color: '#fff', opacity: 0.7 }}
                   >
                     <User size={20} />
                     Meu Perfil

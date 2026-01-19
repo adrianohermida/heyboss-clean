@@ -34,11 +34,18 @@ const BlogPostPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     
-    fetch(`/api/blog/${slug}`)
-        .then(res => {
-          if (!res.ok) throw new Error('Erro ao buscar post do blog');
-          return res.json();
-        })
+    fetch(`/api/blog/${slug}`,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          // 'Authorization': `Bearer ${localStorage.getItem('token') || ''}`
+        }
+      }
+    )
+      .then(res => {
+        if (!res.ok) throw new Error('Erro ao buscar post do blog');
+        return res.json();
+      })
       .then(data => {
         if (data.error) {
           navigate('/blog');

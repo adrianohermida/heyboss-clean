@@ -32,20 +32,26 @@ const ProfilePage = () => {
   const isCliente = !isAdmin && !isColaborador;
 
   useEffect(() => {
-    fetch('/api/user/profile')
+    fetch('/api/users/me', {
+      headers: {
+        'Content-Type': 'application/json',
+        // Adicione Authorization se necessário, ex:
+        // 'Authorization': `Bearer ${supaUser?.access_token}`
+      }
+    })
       .then(res => res.json())
       .then(data => {
         setProfile(data);
         setLoading(false);
       })
       .catch(() => setLoading(false));
-  }, []);
+  }, [supaUser]);
 
   const handleSave = async (formData: any) => {
     setSaving(true);
     setMessage(null);
     try {
-      const res = await fetch('/api/user/profile', {
+      const res = await fetch('/api/users/me', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)

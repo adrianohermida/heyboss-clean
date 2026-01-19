@@ -4,11 +4,12 @@
 export const colors = {
   clear: {
     bg: '#f8f9fa',
-    brand: '#2ecc71',
+    brand: '#394a66', // branding azul escuro
     accent: '#0d9c6e',
-    text: '#1a1a1a',
+    text: '#394a66', // texto principal branding
     card: '#fff',
     border: '#e5e7eb',
+    footerBg: '#394a66',
   },
   dark: {
     bg: '#0a0e1a',
@@ -17,6 +18,7 @@ export const colors = {
     text: '#fff',
     card: '#181c2a',
     border: '#22242c',
+    footerBg: '#181c2a',
   }
 };
 

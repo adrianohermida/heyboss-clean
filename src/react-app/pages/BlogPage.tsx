@@ -28,8 +28,18 @@ const BlogPage2: React.FC = () => {
     document.title = 'Blog | Hermida Maia Advocacia';
     setLoading(true);
     Promise.all([
-      fetch(`/api/blog${activeCategory ? `?categoria=${activeCategory}` : ''}`),
-      fetch('/api/admin/blog-categories')
+      fetch(`/api/blog${activeCategory ? `?categoria=${activeCategory}` : ''}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          // 'Authorization': `Bearer ${localStorage.getItem('token') || ''}`
+        }
+      }),
+      fetch('/api/admin/blog-categories', {
+        headers: {
+          'Content-Type': 'application/json',
+          // 'Authorization': `Bearer ${localStorage.getItem('token') || ''}`
+        }
+      })
     ]).then(async ([postsRes, catsRes]) => {
       if (!postsRes.ok) throw new Error('Erro ao buscar posts do blog');
       if (!catsRes.ok) throw new Error('Erro ao buscar categorias do blog');
