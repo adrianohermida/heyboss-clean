@@ -13,7 +13,7 @@ import React, { useEffect } from 'react';
 import Footer from '../components/Footer';
 import ScrollToTopButton from '../components/ScrollToTopButton';
 import { useNavigate, Link } from 'react-router-dom';
-import { supabase } from '../../supabaseClient';
+
 import LoginForm from '../components/Login/LoginForm';
 import GoogleLoginButton from '../components/Login/GoogleLoginButton';
 import MagicLinkForm from '../components/Login/MagicLinkForm';
@@ -26,6 +26,7 @@ const LoginPage = () => {
 
   useEffect(() => {
     const sessionCheck = async () => {
+      const { supabase } = await import('../../supabaseClient');
       const { data } = await supabase.auth.getSession();
       if (data.session) {
         navigate('/dashboard', { replace: true });

@@ -14,11 +14,15 @@ import AppointmentsSummary from '../components/Appointments/AppointmentsSummary'
 import AppointmentsSuccess from '../components/Appointments/AppointmentsSuccess';
 import { CustomForm } from '../components/CustomForm';
 import { contactFormTheme } from '../components/CustomForm/themes';
-import allConfigs from '../../shared/form-configs.json';
+
 import { useAuth } from '@hey-boss/users-service/react';
 import { useNavigate, Link } from 'react-router-dom';
 
 const AppointmentsPage: React.FC = () => {
+  const [formConfigs, setFormConfigs] = useState<any>(null);
+  useEffect(() => {
+    import('../../shared/form-configs.json').then(mod => setFormConfigs(mod.default || mod));
+  }, []);
   const { user, loading: authLoading } = useAuth();
   const navigate = useNavigate();
   const [step, setStep] = useState(0);

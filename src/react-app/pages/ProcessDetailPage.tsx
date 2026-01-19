@@ -40,7 +40,7 @@ import { cn } from '../utils';
 import { useAuth } from '@hey-boss/users-service/react';
 import { CustomForm } from '../components/CustomForm';
 import { contactFormTheme } from '../components/CustomForm/themes';
-import allConfigs from '../../shared/form-configs.json' with { type: 'json' };
+
 
 const ProcessDetailPage = () => {
   const { id } = useParams();

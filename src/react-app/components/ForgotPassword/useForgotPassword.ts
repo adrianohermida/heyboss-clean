@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { supabase } from '../../../supabaseClient';
+
 
 const useForgotPassword = () => {
   const [email, setEmail] = useState('');
@@ -12,6 +12,7 @@ const useForgotPassword = () => {
     setLoading(true);
     setError('');
     setSuccess('');
+    const { supabase } = await import('../../../supabaseClient');
     const { error } = await supabase.auth.resetPasswordForEmail(email);
     if (error) {
       setError(error.message);

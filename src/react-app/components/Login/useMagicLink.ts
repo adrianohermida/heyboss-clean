@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { supabase } from '../../../supabaseClient';
+
 import { useTheme } from '../../../styles/ThemeProvider';
 
 const useMagicLink = () => {
@@ -18,6 +18,7 @@ const useMagicLink = () => {
     setMagicLoading(true);
     setMagicError('');
     setMagicSent(false);
+    const { supabase } = await import('../../../supabaseClient');
     const { error } = await supabase.auth.signInWithOtp({ email });
     if (error) {
       setMagicError(error.message);

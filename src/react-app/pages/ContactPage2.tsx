@@ -15,9 +15,13 @@ import ContactCards from '../components/Contact/ContactCards';
 import ContactFormSection from '../components/Contact/ContactFormSection';
 import { CustomForm } from '../components/CustomForm';
 import { contactFormTheme } from '../components/CustomForm/themes';
-import allConfigs from '../../shared/form-configs.json';
+
 
 const ContactPage2: React.FC = () => {
+  const [formConfigs, setFormConfigs] = useState<any>(null);
+  React.useEffect(() => {
+    import('../../shared/form-configs.json').then(mod => setFormConfigs(mod.default || mod));
+  }, []);
   const [status, setStatus] = useState<{ type: 'success' | 'error' | null; message: string }>({ type: null, message: '' });
   const handleSubmit = async (formData: any) => {
     try {

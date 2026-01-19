@@ -27,7 +27,7 @@ import {
 } from 'lucide-react';
 import { CustomForm } from '../CustomForm';
 import { contactFormTheme } from '../CustomForm/themes';
-import allConfigs from '../../../shared/form-configs.json';
+
 import { BlogEditor } from './BlogEditor';
 
 export const BlogManagementModule: React.FC = () => {

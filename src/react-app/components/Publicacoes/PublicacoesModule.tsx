@@ -27,10 +27,13 @@ import {
 } from 'lucide-react';
 import { CustomForm } from '../CustomForm';
 import { contactFormTheme } from '../CustomForm/themes';
-import allConfigs from '../../../shared/form-configs.json';
+
 import { cn } from '../../utils';
 
-export const PublicacoesModule: React.FC = () => {
+  const [formConfigs, setFormConfigs] = useState<any>(null);
+  useEffect(() => {
+    import('../../../shared/form-configs.json').then(mod => setFormConfigs(mod.default || mod));
+  }, []);
   const [publicacoes, setPublicacoes] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');

@@ -22,10 +22,14 @@ import {
 } from 'lucide-react';
 import Header from '../components/Header';
 import { CustomForm } from '../components/CustomForm';
-import allConfigs from '../../shared/form-configs.json';
+
 import ScrollToTopButton from '../components/ScrollToTopButton';
 
 const BlogPostPage = () => {
+  const [formConfigs, setFormConfigs] = useState<any>(null);
+  useEffect(() => {
+    import('../../shared/form-configs.json').then(mod => setFormConfigs(mod.default || mod));
+  }, []);
   const { slug } = useParams();
   const navigate = useNavigate();
   const [post, setPost] = useState<any>(null);

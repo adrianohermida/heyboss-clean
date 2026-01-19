@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { supabase } from '../../../supabaseClient';
+
 import { useTheme } from '../../../styles/ThemeProvider';
 
 const useResetPassword = () => {
@@ -20,6 +20,7 @@ const useResetPassword = () => {
     setLoading(true);
     setError('');
     setSuccess('');
+    const { supabase } = await import('../../../supabaseClient');
     const { error } = await supabase.auth.updateUser({ password });
     if (error) {
       setError(error.message);

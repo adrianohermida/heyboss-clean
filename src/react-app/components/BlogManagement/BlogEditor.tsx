@@ -9,7 +9,7 @@ import React, { useState, useEffect } from 'react';
 import { ArrowLeft, Save, Globe, Sparkles, Image as ImageIcon, Loader2 } from 'lucide-react';
 import { CustomForm } from '../CustomForm';
 import { contactFormTheme } from '../CustomForm/themes';
-import allConfigs from '../../../shared/form-configs.json';
+
 
 interface BlogEditorProps {
   post?: any;
@@ -17,7 +17,10 @@ interface BlogEditorProps {
   onBack: () => void;
 }
 
-export const BlogEditor: React.FC<BlogEditorProps> = ({ post, categories, onBack }) => {
+  const [formConfigs, setFormConfigs] = useState<any>(null);
+  useEffect(() => {
+    import('../../../shared/form-configs.json').then(mod => setFormConfigs(mod.default || mod));
+  }, []);
   const [formData, setFormData] = useState<any>(post || { status: 'rascunho' });
   const [isSaving, setIsSaving] = useState(false);
   const [uploading, setUploading] = useState(false);

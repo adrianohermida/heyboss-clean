@@ -7,7 +7,16 @@ type Props = { post: Post; category: Cat|null };
 const BlogPostCard: React.FC<Props> = ({ post, category }) => (
   <article className="bg-brand-elevated rounded-2xl overflow-hidden border border-white/5 group hover:border-brand-primary/30 transition-all flex flex-col h-full shadow-lg hover:shadow-brand-primary/5">
     <Link to={`/blog/${post.slug}`} className="aspect-[16/10] overflow-hidden block relative">
-      <img src={post.imagem_capa_url || 'https://heyboss.heeyo.ai/gemini-image-c5df3e56df0a49fdb468a4708ef7c8a8.png'} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt={post.titulo} />
+      <picture>
+        <source type="image/avif" srcSet={post.imagem_capa_url?.replace('.jpg', '.avif').replace('.png', '.avif') || 'https://heyboss.heeyo.ai/gemini-image-c5df3e56df0a49fdb468a4708ef7c8a8.webp'} />
+        <source type="image/webp" srcSet={post.imagem_capa_url?.replace('.jpg', '.webp').replace('.png', '.webp') || 'https://heyboss.heeyo.ai/gemini-image-c5df3e56df0a49fdb468a4708ef7c8a8.webp'} />
+        <img 
+          src={post.imagem_capa_url || 'https://heyboss.heeyo.ai/gemini-image-c5df3e56df0a49fdb468a4708ef7c8a8.webp'}
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+          alt={post.resumo ? `Imagem ilustrativa do artigo: ${post.titulo} - ${post.resumo}` : `Imagem ilustrativa do artigo: ${post.titulo}`}
+          loading="lazy"
+        />
+      </picture>
       <div className="absolute top-4 left-4">
         <span className="bg-brand-primary text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-lg shadow-lg">{category?.nome || 'Artigo'}</span>
       </div>

@@ -20,11 +20,14 @@ import {
 } from 'lucide-react';
 import { CustomForm } from '../CustomForm';
 import { contactFormTheme } from '../CustomForm/themes';
-import allConfigs from '../../../shared/form-configs.json';
+
 
 import { useMemo } from 'react';
 
-export const ChannelConfig: React.FC = () => {
+  const [formConfigs, setFormConfigs] = useState<any>(null);
+  useEffect(() => {
+    import('../../../shared/form-configs.json').then(mod => setFormConfigs(mod.default || mod));
+  }, []);
   const [channels, setChannels] = useState<any[]>([]);
   const [queues, setQueues] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);

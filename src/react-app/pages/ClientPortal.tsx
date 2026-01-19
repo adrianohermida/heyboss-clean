@@ -16,8 +16,9 @@ import {
 } from 'lucide-react';
 import { CustomForm } from '../components/CustomForm/CustomForm';
 import { contactFormTheme } from '../components/CustomForm/themes';
-import allConfigs from '../../shared/form-configs.json';
+
 import { cn } from '../utils';
+
 
 const ClientPortal: React.FC = () => {
   const { user: authUser, access_token } = useAuth();
@@ -33,6 +34,11 @@ const ClientPortal: React.FC = () => {
   const [documentos, setDocumentos] = useState<any[]>([]);
   const [appointments, setAppointments] = useState<any[]>([]);
   const [loadingAppointments, setLoadingAppointments] = useState(false);
+  const [formConfigs, setFormConfigs] = useState<any>(null);
+
+  useEffect(() => {
+    import('../../shared/form-configs.json').then(mod => setFormConfigs(mod.default || mod));
+  }, []);
 
   // Função genérica para buscar dados de cada módulo
   const fetchData = async (modulo: string) => {

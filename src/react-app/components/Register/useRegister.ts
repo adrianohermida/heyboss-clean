@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { supabase } from '../../../supabaseClient';
+
 import { useTheme } from '../../../styles/ThemeProvider';
 
 const useRegister = () => {
@@ -28,6 +28,7 @@ const useRegister = () => {
     setLoading(true);
     setError('');
     setSuccess('');
+    const { supabase } = await import('../../../supabaseClient');
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
