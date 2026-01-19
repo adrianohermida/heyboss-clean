@@ -65,15 +65,38 @@ const ContactPage2: React.FC = () => {
             setStatus={setStatus}
             onSubmit={handleSubmit}
             CustomForm={CustomForm}
-            schema={allConfigs.contact_form.jsonSchema}
+            schema={formConfigs?.contact_form?.jsonSchema}
             theme={contactFormTheme}
           />
         </div>
-      </main>
-      {/* Footer removido: agora é global via App.tsx */}
-      <ScrollToTopButton />
-    </>
-  );
-};
-
-export default ContactPage2;
+      if (!formConfigs) {
+        return (
+          <div className="min-h-screen flex items-center justify-center bg-brand-dark text-white">
+            <div className="text-center space-y-4">
+              <div className="animate-spin mx-auto w-10 h-10 border-4 border-brand-primary border-t-transparent rounded-full" />
+              <p className="text-lg font-bold">Carregando formulário de contato...</p>
+            </div>
+          </div>
+        );
+      }
+      return (
+        <>
+          <Header />
+          <main className="min-h-screen bg-brand-dark text-white selection:bg-brand-primary selection:text-white pt-32 pb-24">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <ContactHero />
+              <ContactCards />
+              <ContactFormSection
+                status={status}
+                setStatus={setStatus}
+                onSubmit={handleSubmit}
+                CustomForm={CustomForm}
+                schema={formConfigs.contact_form.jsonSchema}
+                theme={contactFormTheme}
+              />
+            </div>
+          </main>
+          {/* Footer removido: agora é global via App.tsx */}
+          <ScrollToTopButton />
+        </>
+      );
