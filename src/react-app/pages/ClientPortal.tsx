@@ -8,12 +8,16 @@ import React, { useState, useEffect } from 'react';
 // Toast/banner para feedback visual
 const Toast: React.FC<{ type: 'success' | 'error'; message: string; onClose?: () => void }> = ({ type, message, onClose }) => (
   <div className={clsx(
-    'fixed top-6 left-1/2 z-[200] -translate-x-1/2 px-6 py-3 rounded-xl shadow-lg font-bold text-sm flex items-center gap-2',
-    type === 'success' ? 'bg-green-500/90 text-white' : 'bg-red-500/90 text-white'
-  )}>
+          'fixed top-6 left-1/2 z-[200] -translate-x-1/2 px-6 py-3 rounded-xl shadow-lg font-bold text-sm flex items-center gap-2'
+        )}
+        style={{
+          background: type === 'success' ? 'var(--color-success)' : 'var(--color-error)',
+          color: 'var(--color-on-success, #fff)'
+        }}
+      >
     {type === 'success' ? <CheckCircle2 size={20} /> : <AlertCircle size={20} />}
     <span>{message}</span>
-    {onClose && <button onClick={onClose} className="ml-4 text-white/70 hover:text-white focus:outline-none">✕</button>}
+    {onClose && <button onClick={onClose} style={{ color: 'var(--color-on-success, #fff)' }} className="ml-4 hover:opacity-80 focus:outline-none">✕</button>}
   </div>
 );
 import Header from '../components/Header';
@@ -276,12 +280,17 @@ const TicketsModule = () => {
               <h2 className="text-2xl font-extrabold">{selectedTicket.subject}</h2>
               <div className="flex items-center gap-3 mt-1">
                 <p className="text-white/40 text-xs uppercase font-bold tracking-widest">Ticket #{selectedTicket.id}</p>
-                <span className={clsx(
-                  "text-[9px] font-bold uppercase px-2 py-0.5 rounded-md",
-                  selectedTicket.status === 'Fechado' ? "bg-green-500/10 text-green-400" : "bg-brand-primary/10 text-brand-primary"
-                )}>{selectedTicket.status}</span>
+                <span
+                  className={clsx("text-[9px] font-bold uppercase px-2 py-0.5 rounded-md")}
+                  style={selectedTicket.status === 'Fechado'
+                    ? { background: 'var(--color-success)', color: 'var(--color-on-success, #fff)' }
+                    : { background: 'var(--color-accent)', color: 'var(--color-on-accent, #fff)' }}
+                >{selectedTicket.status}</span>
                 {selectedTicket.priority === 'Alta' && (
-                  <span className="bg-red-500/10 text-red-400 text-[9px] font-bold uppercase px-2 py-0.5 rounded-md">Urgente</span>
+                  <span
+                    className="text-[9px] font-bold uppercase px-2 py-0.5 rounded-md"
+                    style={{ background: 'var(--color-error)', color: 'var(--color-on-error, #fff)' }}
+                  >Urgente</span>
                 )}
               </div>
             </div>

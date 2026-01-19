@@ -99,7 +99,12 @@ export const ChatbotConfigModule: React.FC = () => {
                     <td className="px-8 py-6 font-bold text-white">{intent.nome}</td>
                     <td className="px-8 py-6 text-white/60">{intent.descricao}</td>
                     <td className="px-8 py-6">
-                      <span className={`text-[10px] font-bold uppercase px-2 py-1 rounded-md ${intent.ativo ? 'bg-green-500/10 text-green-400' : 'bg-red-500/10 text-red-400'}`}>
+                      <span
+                        className="text-[10px] font-bold uppercase px-2 py-1 rounded-md"
+                        style={intent.ativo
+                          ? { background: 'var(--color-success)', color: 'var(--color-on-success, #fff)' }
+                          : { background: 'var(--color-error)', color: 'var(--color-on-error, #fff)' }}
+                      >
                         {intent.ativo ? 'Ativo' : 'Inativo'}
                       </span>
                     </td>

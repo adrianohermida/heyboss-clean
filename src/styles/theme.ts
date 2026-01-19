@@ -12,6 +12,10 @@ export const colors = {
     border: '#e5e7eb',
     footerBg: '#394a66',
     white: '#edf0f2', // substituto do branco
+    success: '#00d969', // verde sucesso
+    error: '#e53935', // vermelho erro
+    warning: '#ffb300', // amarelo alerta
+    info: '#1976d2', // azul info
   },
   dark: {
     bg: '#181c2a', // fundo escuro elegante
@@ -23,6 +27,10 @@ export const colors = {
     border: '#22242c',
     footerBg: '#181c2a',
     white: '#edf0f2', // mantém consistência para elementos claros
+    success: '#00d969', // verde sucesso
+    error: '#ff6659', // vermelho erro escuro
+    warning: '#ffd54f', // amarelo alerta escuro
+    info: '#90caf9', // azul info escuro
   }
 };
 
