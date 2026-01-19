@@ -5,7 +5,7 @@ type Cat = { id: number; nome: string };
 type Post = { id: string; slug: string; titulo: string; resumo?: string; meta_descricao?: string; imagem_capa_url?: string; categoria_id: number; data_publicacao?: string; created_at?: string };
 type Props = { post: Post; category: Cat|null };
 const BlogPostCard: React.FC<Props> = ({ post, category }) => (
-  <article className="bg-[var(--color-cardElevated)] rounded-2xl overflow-hidden border border-gray-200 group hover:border-[var(--color-accent)] transition-all flex flex-col h-full shadow-xl hover:shadow-[0_4px_32px_0_var(--color-accent)]">
+  <article className="bg-[var(--color-cardElevated)] rounded-2xl overflow-hidden border border-[var(--color-border)]/10 group hover:border-[var(--color-accent)] transition-all flex flex-col h-full shadow-xl hover:shadow-[0_4px_32px_0_var(--color-accent)]">
     <Link to={`/blog/${post.slug}`} className="aspect-[16/10] overflow-hidden block relative" aria-label={`Abrir artigo: ${post.titulo}`}>
       <picture>
         <source type="image/avif" srcSet={post.imagem_capa_url?.replace('.jpg', '.avif').replace('.png', '.avif') || 'https://heyboss.heeyo.ai/gemini-image-c5df3e56df0a49fdb468a4708ef7c8a8.webp'} />
