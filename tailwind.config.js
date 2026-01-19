@@ -9,21 +9,30 @@ export default {
     extend: {
       colors: {
         brand: {
-          dark: 'var(--color-bg-dark)',
+          dark: 'var(--color-bg)',
           primary: 'var(--color-brand)',
           accent: 'var(--color-accent)',
-          elevated: 'var(--color-card)',
-          secondary: 'var(--color-bg-clear)',
+          elevated: 'var(--color-cardElevated)',
+          secondary: 'var(--color-bg)',
         },
         text: {
           DEFAULT: 'var(--color-text)',
+          secondary: 'var(--color-text-secondary)',
+          tertiary: 'var(--color-text-tertiary)',
         },
         card: {
           DEFAULT: 'var(--color-card)',
+          elevated: 'var(--color-cardElevated)',
         },
         border: {
           DEFAULT: 'var(--color-border)',
-        }
+        },
+        success: 'var(--color-success)',
+        error: 'var(--color-error)',
+        warning: 'var(--color-warning)',
+        info: 'var(--color-info)',
+        white: 'var(--color-white)',
+        footer: 'var(--color-footerBg)',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
