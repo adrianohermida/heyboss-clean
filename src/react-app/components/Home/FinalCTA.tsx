@@ -24,7 +24,13 @@ const FinalCTA: React.FC = () => {
         <h2 className="text-4xl sm:text-5xl font-extrabold mb-8 tracking-tight leading-tight text-white drop-shadow-lg">
           Fale com um Advogado Especialista em Superendividamento Agora
         </h2>
-        <p className="text-white/80 text-lg mb-12 max-w-2xl mx-auto font-medium">
+        <p
+          className="text-lg mb-12 max-w-2xl mx-auto font-medium"
+          style={{
+            color: mode === 'clear' ? 'var(--color-text)' : 'var(--color-text-secondary)',
+            opacity: mode === 'clear' ? 0.92 : 0.88
+          }}
+        >
           Não deixe as dívidas controlarem sua vida. Nossa advocacia especializada
           em superendividamento e redução de dívidas está pronta para lutar por você.
         </p>
