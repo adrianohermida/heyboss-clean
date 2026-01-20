@@ -70,10 +70,10 @@ export default function Footer() {
             </div>
             <div className="pt-2">
               <form className="space-y-3">
-                <p className="text-white/40 text-xs font-medium ml-1">Assine nossa newsletter jurídica:</p>
+                <p className="text-white text-xs font-medium ml-1">Assine nossa newsletter jurídica:</p>
                 <div className="flex gap-2">
-                  <input type="email" required placeholder="Seu e-mail" className="flex-1 rounded-lg px-4 py-2 bg-white/10 text-white border border-white/20 focus:border-brand-primary outline-none text-sm" />
-                  <button type="submit" className="bg-brand-primary text-white px-4 py-2 rounded-lg font-bold text-sm hover:bg-brand-primary/90 transition-all">Assinar</button>
+                  <input type="email" required placeholder="Seu e-mail" className="flex-1 rounded-lg px-4 py-2 bg-white/10 text-white border border-white/20 focus:border-[var(--color-success)] outline-none text-sm" />
+                  <button type="submit" className="bg-brand-primary text-white px-4 py-2 rounded-lg font-bold text-sm hover:bg-[var(--color-success)] transition-all">Assinar</button>
                 </div>
               </form>
             </div>
@@ -81,10 +81,10 @@ export default function Footer() {
         </div>
 
         <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex flex-wrap justify-center gap-6 text-xs text-white/30 font-medium">
-            <a href="#" className="hover:text-white transition-colors">Política de Privacidade</a>
-            <a href="#" className="hover:text-white transition-colors">Termos de Uso</a>
-            <a href="#" className="hover:text-white transition-colors">LGPD</a>
+          <div className="flex flex-wrap justify-center gap-6 text-xs text-white font-medium">
+            <a href="#" className="hover:text-[var(--color-success)] transition-colors">Política de Privacidade</a>
+            <a href="#" className="hover:text-[var(--color-success)] transition-colors">Termos de Uso</a>
+            <a href="#" className="hover:text-[var(--color-success)] transition-colors">LGPD</a>
           </div>
           <p className="text-xs text-white/20">
             © 2024 Hermida Maia Advocacia. Todos os direitos reservados. Made with Heyboss.ai
