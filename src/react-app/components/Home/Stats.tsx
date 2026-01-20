@@ -20,11 +20,11 @@ const Stats: React.FC = () => {
             { icon: Zap, title: "Solução Rápida", desc: "Processos otimizados para eliminar dívidas de forma definitiva e ágil." },
             { icon: Smile, title: "Tranquilidade", desc: "Recupere sua dignidade financeira com nossa consultoria jurídica especializada." }
           ].map((stat, idx) => (
-            <div key={idx} className="p-8 rounded-2xl transition-all group shadow bg-[var(--color-card)] border border-[var(--color-border)]/10 hover:border-[var(--color-brand-primary)]/30">
-              <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform bg-[var(--color-brand-primary)]/10">
-                <stat.icon className="text-[var(--color-brand-primary)]" size={28} />
+            <div key={idx} className="p-8 rounded-2xl transition-all group shadow-lg bg-white border border-[var(--color-success)]/30 hover:border-[var(--color-success)]/60">
+              <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 bg-white border border-[var(--color-success)]/40 shadow">
+                <stat.icon className="text-[var(--color-success)]" size={32} />
               </div>
-              <h3 className={`text-xl font-bold mb-3 ${text}`}>{stat.title}</h3>
+              <h3 className="text-xl font-bold mb-3 text-[#394a66]">{stat.title}</h3>
               <p className="text-[var(--color-text-secondary)] text-sm leading-relaxed">{stat.desc}</p>
             </div>
           ))}

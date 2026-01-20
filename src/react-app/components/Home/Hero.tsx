@@ -52,24 +52,24 @@ const Hero: React.FC = () => {
             </div>
           </div>
           <div className="relative flex items-center justify-center">
-            <div className="absolute -top-6 -right-6 sm:-top-8 sm:-right-8 bg-[var(--color-cardElevated)] p-4 rounded-2xl border border-[var(--color-border)]/10 shadow-xl z-30 pointer-events-none">
+            <div className="absolute -top-6 -right-6 sm:-top-8 sm:-right-8 bg-white p-4 rounded-2xl border border-[var(--color-success)]/40 shadow z-30 pointer-events-none">
               <div className="flex items-center gap-3">
-                <div className="bg-[var(--color-brand-primary)]/20 p-2 rounded-lg">
-                  <ShieldCheck className="text-[var(--color-brand-primary)]" size={24} />
+                <div className="bg-white border border-[var(--color-success)]/40 p-2 rounded-lg shadow">
+                  <ShieldCheck className="text-[var(--color-success)]" size={24} />
                 </div>
                 <div>
-                  <p className="text-[var(--color-text)] font-bold text-sm">OAB/RS 107048</p>
+                  <p className="text-[#394a66] font-bold text-sm">OAB/RS 107048</p>
                   <p className="text-[var(--color-text-secondary)] text-xs">Pós-graduado</p>
                 </div>
               </div>
             </div>
-            <div className="absolute -bottom-6 -left-6 sm:-bottom-8 sm:-left-8 bg-[var(--color-cardElevated)] p-4 rounded-2xl border border-[var(--color-border)]/10 shadow-xl z-30 pointer-events-none">
+            <div className="absolute -bottom-6 -left-6 sm:-bottom-8 sm:-left-8 bg-white p-4 rounded-2xl border border-[var(--color-success)]/40 shadow z-30 pointer-events-none">
               <div className="flex items-center gap-3">
-                <div className="bg-[var(--color-brand-accent)]/20 p-2 rounded-lg">
-                  <TrendingDown className="text-[var(--color-brand-accent)]" size={24} />
+                <div className="bg-white border border-[var(--color-success)]/40 p-2 rounded-lg shadow">
+                  <TrendingDown className="text-[var(--color-success)]" size={24} />
                 </div>
                 <div>
-                  <p className="text-[var(--color-text)] font-bold text-sm">12 anos</p>
+                  <p className="text-[#394a66] font-bold text-sm">12 anos</p>
                   <p className="text-[var(--color-text-secondary)] text-xs">de Atuação</p>
                 </div>
               </div>
