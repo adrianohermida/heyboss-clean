@@ -322,6 +322,18 @@ app.post("/api/verify-otp", async (c) => {
 // == APPOINTMENTS LOGIC (INTERNAL DB)                            ==
 // =================================================================
 
+// Simulations endpoint: accepts POST requests from frontend
+app.post("/api/simulations", async (c) => {
+  try {
+    const body = await c.req.json();
+    // Optionally, validate and store in DB
+    // await c.env.DB.prepare("INSERT INTO simulations (data, created_at) VALUES (?, ?)").bind(JSON.stringify(body), new Date().toISOString()).run();
+    return c.json({ success: true });
+  } catch (error) {
+    return c.json({ error: "Failed to save simulation" }, 500);
+  }
+});
+
 app.get("/api/appointments/profissionais", async (c) => {
   const { results } = await c.env.DB.prepare("SELECT * FROM profissionais WHERE ativo = 1").all();
   return c.json(results);
