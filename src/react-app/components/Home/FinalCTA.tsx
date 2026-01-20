@@ -7,25 +7,20 @@ import { useTheme } from '../../../styles/ThemeProvider';
 const FinalCTA: React.FC = () => {
   const { mode } = useTheme();
   // Fundo premium 100% tokenizado
-  const bg = mode === 'clear'
-    ? 'bg-[linear-gradient(135deg,var(--color-bg),var(--color-success)_60%,var(--color-accent)_100%)]'
-    : 'bg-[linear-gradient(135deg,var(--color-bg),var(--color-success)_60%,var(--color-accent)_100%)]';
-  const shadow = 'shadow-[0_8px_32px_0_var(--color-shadow)]';
+  const bg = 'bg-[var(--color-success)]';
+  const shadow = 'shadow-[0_8px_32px_0_var(--color-shadow-success)]';
   return (
     <section
       className={`py-24 ${bg} ${shadow} relative overflow-hidden flex items-center justify-center`}
       aria-label="Chamada final institucional"
     >
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="w-full h-full bg-[radial-gradient(circle_at_70%_70%,rgba(255,255,255,0.08)_0%,transparent_60%)]" />
-      </div>
+      {/* Removido overlay de degradê */}
       <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
         <h2 className="text-4xl sm:text-5xl font-extrabold mb-8 tracking-tight leading-tight text-white drop-shadow-lg">
           Fale com um Advogado Especialista em Superendividamento Agora
         </h2>
         <p
-          className="text-lg mb-12 max-w-2xl mx-auto font-medium text-[var(--color-text-secondary)]"
-          style={{ opacity: 0.92 }}
+          className="text-lg mb-12 max-w-2xl mx-auto font-medium text-white/90"
         >
           Não deixe as dívidas controlarem sua vida. Nossa advocacia especializada
           em superendividamento e redução de dívidas está pronta para lutar por você.
@@ -35,16 +30,14 @@ const FinalCTA: React.FC = () => {
             href="https://wa.me/5551996032004"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-10 py-5 rounded-2xl font-extrabold text-xl shadow-xl transition-all hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-offset-2 text-center"
-            style={{ background: 'var(--color-success)', color: 'var(--color-on-success, #fff)', boxShadow: '0 2px 12px 0 var(--color-shadow-success)' }}
+            className="px-10 py-5 rounded-2xl font-extrabold text-xl shadow-xl transition-all hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-offset-2 text-center bg-white text-[var(--color-success)] border border-white/10"
             aria-label="Falar no WhatsApp"
           >
             Falar no WhatsApp
           </a>
           <Link
             to="/appointments"
-            className="px-10 py-5 rounded-2xl font-extrabold text-xl shadow-xl transition-all hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-offset-2 text-center"
-            style={{ background: 'var(--color-cardElevated)', color: 'var(--color-brand)', boxShadow: '0 2px 12px 0 var(--color-shadow)' }}
+            className="px-10 py-5 rounded-2xl font-extrabold text-xl shadow-xl transition-all hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-offset-2 text-center bg-[var(--color-cardElevated)] text-white border border-white/10"
             aria-label="Agendar avaliação"
           >
             Agendar avaliação
