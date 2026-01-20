@@ -208,10 +208,10 @@ const Calculator: React.FC = () => {
                 </button>
               </div>
             </div>
-            <p className="text-center text-[10px] text-[var(--color-text)]/30 mt-8">
-              * Seus dados estão protegidos pela LGPD e serão usados apenas para esta análise.
-            </p>
           )}
+          <p className="text-center text-[10px] text-[var(--color-text)]/30 mt-8">
+            * Seus dados estão protegidos pela LGPD e serão usados apenas para esta análise.
+          </p>
         </div>
       </div>
     </section>
