@@ -37,7 +37,7 @@ const FinalCTA: React.FC = () => {
           </a>
           <Link
             to="/appointments"
-            className="px-10 py-5 rounded-2xl font-extrabold text-xl shadow-xl transition-all hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-offset-2 text-center bg-[var(--color-cardElevated)] text-white border border-white/10 drop-shadow-[0_2px_8px_rgba(0,0,0,0.10)]"
+            className="px-10 py-5 rounded-2xl font-extrabold text-xl shadow-xl transition-all hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-offset-2 text-center bg-white text-[#0a0e1a] border border-[var(--color-success)] drop-shadow-[0_2px_8px_rgba(0,0,0,0.10)]"
             aria-label="Agendar avaliação"
           >
             Agendar avaliação

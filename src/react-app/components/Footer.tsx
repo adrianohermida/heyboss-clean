@@ -14,7 +14,7 @@ export default function Footer() {
               </div>
               <span className="text-white font-extrabold text-lg">Dr. Adriano Hermida Maia</span>
             </div>
-            <p className="text-white/50 text-sm leading-relaxed">
+            <p className="text-white text-sm leading-relaxed">
               Advocacia especializada em defesa do consumidor e superendividamento. Atuação nacional com foco em resultados e dignidade humana.
             </p>
             <div className="flex gap-4">
@@ -60,11 +60,11 @@ export default function Footer() {
             <h4 className="text-white font-bold mb-6">Contato</h4>
             <div className="space-y-4">
               <div className="flex items-start gap-3 text-sm text-white">
-                <span className="inline-block w-5 h-5 text-brand-primary">📞</span>
+                <span className="inline-block w-5 h-5 text-[var(--color-success)]">📞</span>
                 <span>(51) 99603-2004</span>
               </div>
               <div className="flex items-start gap-3 text-sm text-white">
-                <span className="inline-block w-5 h-5 text-brand-primary">✉️</span>
+                <span className="inline-block w-5 h-5 text-[var(--color-success)]">✉️</span>
                 <span>contato@hermidamaia.adv.br</span>
               </div>
             </div>
