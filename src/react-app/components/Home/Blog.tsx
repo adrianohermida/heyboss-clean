@@ -8,7 +8,13 @@ const Blog: React.FC = () => {
 
   React.useEffect(() => {
     fetch('/api/blog')
-      .then(res => res.json())
+      .then(async res => {
+        if (!res.ok) {
+          // 404/405 or other error: fallback to mock posts
+          throw new Error('API error');
+        }
+        return res.json();
+      })
       .then(data => {
         setPosts(data);
         setLoading(false);
