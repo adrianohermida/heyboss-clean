@@ -13,9 +13,9 @@ const Hero: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className={`text-center lg:text-left space-y-8`}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border" style={{ background: 'rgba(0,217,105,0.16)', borderColor: 'var(--color-accent)' }}>
-              <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--color-accent)' }} />
-              <span className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--color-accent)', letterSpacing: 1 }}>Lei 14.181/2021 - Superendividamento</span>
+            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border shadow-sm" style={{ background: '#e6f9f0', borderColor: '#00d969', boxShadow: '0 2px 8px 0 rgba(0,217,105,0.10)' }}>
+              <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#00d969' }} />
+              <span className="text-xs font-extrabold uppercase tracking-widest" style={{ color: '#009e5c', letterSpacing: 1.5, textShadow: '0 1px 0 #fff' }}>Lei 14.181/2021 - Superendividamento</span>
             </div>
             <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-extrabold ${text} leading-[1.1] sm:!text-[53px] drop-shadow-[0_2px_8px_rgba(0,0,0,0.08)]`}>
               Advogado Especialista em Superendividamento: Parcele suas <span style={{ color: 'var(--color-accent)' }}>dívidas</span> em até 5 anos
