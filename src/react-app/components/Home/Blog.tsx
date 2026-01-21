@@ -49,7 +49,7 @@ const Blog: React.FC = () => {
     <section id="blog" className="py-24 bg-[var(--color-bg-alt)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[var(--color-brand)] mb-4">Blog de Defesa do Consumidor: Dicas para Renegociar Dívidas</h2>
+          <h2 className={`text-3xl sm:text-4xl font-extrabold mb-4 ${mode === 'clear' ? 'text-[var(--color-brand-primary)]' : 'text-[var(--color-success)]'}`}>Blog de Defesa do Consumidor: Dicas para Renegociar Dívidas</h2>
           <p className="text-[var(--color-text-secondary)]/90">Mantenha-se informado sobre a Lei 14.181/2021 e como eliminar dívidas legalmente com nossa consultoria jurídica.</p>
         </div>
         {loading ? (

@@ -9,7 +9,7 @@ const Testimonials: React.FC = () => {
     <section className="py-24 bg-[var(--color-bg-alt)]" aria-labelledby="depoimentos-title">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 id="depoimentos-title" className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[var(--color-brand-primary)] dark:text-white mb-4">Depoimentos de Clientes sobre Defesa do Consumidor e Dívidas</h2>
+          <h2 id="depoimentos-title" className={`text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 ${mode === 'clear' ? 'text-[var(--color-brand-primary)]' : 'text-[var(--color-success)]'}`}>Depoimentos de Clientes sobre Defesa do Consumidor e Dívidas</h2>
           <p className="text-lg text-[var(--color-text)]/80 dark:text-white/80">Histórias reais de quem recuperou a paz com nossa advocacia especializada em dívidas e superendividamento.</p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">

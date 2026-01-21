@@ -6,7 +6,7 @@ import { useTheme } from '../../../styles/ThemeProvider';
 const Hero: React.FC = () => {
   const { mode } = useTheme();
   const bg = mode === 'clear' ? 'bg-white' : 'bg-[var(--color-bg)]';
-  const text = mode === 'clear' ? 'text-[var(--color-brand-primary)]' : 'text-[var(--color-text)]';
+  const text = mode === 'clear' ? 'text-[var(--color-brand-primary)]' : 'text-[var(--color-success)]';
   return (
     <section className={`relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden ${bg}`}>
       {/* Removido overlay degradê */}
@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
               <span className="text-xs font-extrabold uppercase tracking-widest" style={{ color: '#fff', letterSpacing: 1.5, textShadow: '0 1px 0 #00b85b' }}>LEI 14.181/2021 • SUPERENDIVIDAMENTO</span>
             </div>
             <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-extrabold ${text} leading-[1.1] sm:!text-[53px] drop-shadow-[0_2px_8px_rgba(0,0,0,0.08)]`}>
-              Advogado Especialista em Superendividamento: Parcele suas <span style={{ color: 'var(--color-success)' }}>dívidas</span> em até 5 anos
+              Advogado Especialista em Superendividamento: Parcele suas <span className={mode === 'clear' ? 'text-[var(--color-success)]' : 'text-[var(--color-success)]'}>dívidas</span> em até 5 anos
             </h1>
             <p className={`text-lg text-[var(--color-text)]/80 max-w-xl mx-auto lg:mx-0 leading-relaxed`}>
               Advocacia especializada em superendividamento e defesa do consumidor. Mais de R$ 35 milhões em redução de dívidas renegociados em todo o Brasil. Recupere sua paz financeira hoje.
