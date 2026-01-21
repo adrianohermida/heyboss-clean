@@ -20,6 +20,7 @@ import { CustomForm } from '../components/CustomForm';
 import { contactFormTheme } from '../components/CustomForm/themes';
 
 import ScrollToTopButton from '../components/ScrollToTopButton';
+import { apiBase } from '../utils/apiBase';
 
 const ContactPage = () => {
   const [formConfigs, setFormConfigs] = useState<any>(null);

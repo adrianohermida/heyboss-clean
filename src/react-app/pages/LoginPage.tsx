@@ -19,6 +19,7 @@ import GoogleLoginButton from '../components/Login/GoogleLoginButton';
 import MagicLinkForm from '../components/Login/MagicLinkForm';
 import { loginPageManifest } from '../components/Login/LoginPage.manifest';
 import { useTheme } from '../../styles/ThemeProvider';
+import { apiBase } from '../utils/apiBase';
 
 const LoginPage = () => {
   const navigate = useNavigate();

@@ -15,6 +15,7 @@ import ContactCards from '../components/Contact/ContactCards';
 import ContactFormSection from '../components/Contact/ContactFormSection';
 import { CustomForm } from '../components/CustomForm';
 import { contactFormTheme } from '../components/CustomForm/themes';
+import { apiBase } from '../utils/apiBase';
 
 
 const ContactPage2: React.FC = () => {

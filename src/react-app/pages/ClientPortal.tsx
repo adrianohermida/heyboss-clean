@@ -26,6 +26,7 @@ import ClientPortalSidebar from '../components/ClientPortal/ClientPortalSidebar'
 import ClientPortalOverview from '../components/ClientPortal/ClientPortalOverview';
 import { Link } from 'react-router-dom';
 import clsx from 'clsx';
+import { apiBase } from '../utils/apiBase';
 import {
   Loader2, Scale, CheckCircle2, Clock, CreditCard, Download, FileText, ExternalLink, AlertCircle, Wallet, CalendarIcon, MessageSquare, ShieldCheck, Plus, Send, X, ChevronRight
 } from 'lucide-react';
@@ -33,6 +34,14 @@ import { CustomForm } from '../components/CustomForm/CustomForm';
 import { contactFormTheme } from '../components/CustomForm/themes';
 
 import { cn } from '../utils';
+import { useTheme } from '../../styles/ThemeProvider';
+import ClientPortalProcessos from '../components/ClientPortal/ClientPortalProcessos';
+import ClientPortalTickets from '../components/ClientPortal/ClientPortalTickets';
+import ClientPortalFaturas from '../components/ClientPortal/ClientPortalFaturas';
+import ClientPortalCRM from '../components/ClientPortal/ClientPortalCRM';
+import ClientPortalProcessos from '../components/ClientPortal/ClientPortalProcessos';
+import ClientPortalPublicacoes from '../components/ClientPortal/ClientPortalPublicacoes';
+import ClientPortalTickets from '../components/ClientPortal/ClientPortalTickets';
 
 
 const ClientPortal: React.FC = () => {

@@ -16,6 +16,7 @@ import ProfileAccessCard from '../components/Profile/ProfileAccessCard';
 import ProfileForm from '../components/Profile/ProfileForm';
 import ProfileSkeleton from '../components/Profile/ProfileSkeleton';
 import { profilePageManifest } from '../components/Profile/ProfilePage.manifest';
+import { apiBase } from '../utils/apiBase';
 
 const adminEmails = ["adrianohermida@gmail.com", "contato@hermidamaia.adv.br", "admin@example.com"];
 

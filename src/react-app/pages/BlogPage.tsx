@@ -8,6 +8,7 @@ import BlogSearchFilter from '../components/Blog/BlogSearchFilter';
 import BlogPostCard from '../components/Blog/BlogPostCard';
 import BlogSkeleton from '../components/Blog/BlogSkeleton';
 import BlogNoResults from '../components/Blog/BlogNoResults';
+import { apiBase } from '../utils/apiBase';
 
 // Manifesto da página Blog
 // - Modular: cada seção é um componente
