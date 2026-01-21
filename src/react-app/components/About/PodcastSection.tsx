@@ -14,14 +14,10 @@ const PodcastSection: React.FC = () => (
             <h2 className="text-2xl md:text-3xl font-extrabold text-[var(--color-brand)] leading-tight">Hermida Maia <span className="text-[var(--color-brand-primary)]">Podcast</span></h2>
             <p className="text-[var(--color-text-secondary)]/80 text-xs md:text-base leading-relaxed">Discussões sobre direitos do consumidor, estratégias contra juros abusivos e educação financeira com o Dr. Adriano e convidados.</p>
             <div className="flex flex-wrap gap-3">
-              <button onClick={()=>window.open('https://youtube.com/@hermidamaia','_blank')} className="bg-[var(--color-brand-primary)] hover:bg-[var(--color-brand-primary)]/90 text-white px-6 py-2 rounded-lg font-bold flex items-center gap-2 transition-all text-xs md:text-sm">
-                <Youtube size={16} />
-                YouTube
-              </button>
-              <button className="bg-[var(--color-card)] hover:bg-[var(--color-cardElevated)] text-[var(--color-brand-primary)] border border-[var(--color-border)]/10 px-6 py-2 rounded-lg font-bold flex items-center gap-2 transition-all text-xs md:text-sm">
+              <a href="https://open.spotify.com/show/7F1Qw6QwQwQwQwQwQwQwQw" target="_blank" rel="noopener noreferrer" className="bg-[var(--color-card)] hover:bg-[var(--color-cardElevated)] text-[var(--color-brand-primary)] border border-[var(--color-border)]/10 px-6 py-2 rounded-lg font-bold flex items-center gap-2 transition-all text-xs md:text-sm">
                 <Mic size={16} />
                 Spotify
-              </button>
+              </a>
             </div>
           </div>
           <div className="relative group">

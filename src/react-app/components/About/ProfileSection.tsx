@@ -12,13 +12,13 @@ const ProfileSection: React.FC = () => (
           className="rounded-2xl shadow-xl w-full object-cover aspect-[4/5]"
         />
         <div className="absolute bottom-4 left-4 right-4 bg-[var(--color-cardElevated)]/90 backdrop-blur p-4 rounded-xl border border-[var(--color-border)]/10">
-          <p className="text-[var(--color-brand)] font-bold text-lg">Dr. Adriano Hermida Maia</p>
-          <p className="text-[var(--color-brand-primary)] font-medium text-xs">OAB/SP 476.963 | Especialista em Dívidas</p>
+          <p className="text-white font-bold text-lg drop-shadow">Dr. Adriano Hermida Maia</p>
+          <p className="text-white/80 font-medium text-xs drop-shadow">OAB/SP 476.963 | Especialista em Dívidas</p>
         </div>
       </div>
       <div className="space-y-6">
         <h2 className="text-2xl md:text-3xl font-extrabold text-[var(--color-brand)]">Trajetória e Expertise</h2>
-        <div className="space-y-4 text-[var(--color-text-secondary)]/90 text-sm leading-relaxed">
+        <div className="space-y-4 text-[var(--color-text)]/80 text-sm leading-relaxed">
           <p>Advogado com sólida formação acadêmica e experiência em Direito Bancário e do Consumidor. Defesa do "mínimo existencial" e aplicação da Lei 14.181/2021.</p>
           <p>Atuação nacional, referência em renegociação de dívidas e combate a práticas abusivas de bancos.</p>
           <p>Restauramos a dignidade de quem foi sufocado por juros abusivos. Ninguém deve ser escravo de uma dívida impagável.</p>

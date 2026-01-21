@@ -13,8 +13,8 @@ const StatsSection: React.FC = () => (
     <div className="max-w-5xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center relative z-10">
       {stats.map((stat, i) => (
         <div key={i} className="space-y-1">
-          <p className="text-2xl md:text-4xl font-black text-white">{stat.value}</p>
-          <p className="text-white/80 font-bold uppercase tracking-widest text-xs">{stat.label}</p>
+          <p className="text-2xl md:text-4xl font-black text-white drop-shadow">{stat.value}</p>
+          <p className="text-white/90 font-semibold uppercase tracking-widest text-xs" style={{letterSpacing: '0.08em'}}>{stat.label}</p>
         </div>
       ))}
     </div>
