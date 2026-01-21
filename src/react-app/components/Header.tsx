@@ -58,6 +58,27 @@ const Header = () => {
   const headerBg = 'border-b' // Tailwind border
   // O fundo e cor do texto são controlados por CSS vars
 
+  // Desktop theme switcher (sempre visível)
+  const ThemeSwitcher = () => (
+    <button
+      onClick={() => setMode(mode === 'clear' ? 'dark' : 'clear')}
+      aria-label={mode === 'clear' ? 'Ativar modo escuro' : 'Ativar modo claro'}
+      className="ml-2 p-2 rounded-full border border-brand-primary bg-white/10 hover:bg-brand-success/20 transition focus-visible:ring-2 focus-visible:ring-brand-success"
+      style={mode === 'clear' ? { color: '#394a66', background: '#fff' } : { color: '#fff', background: '#232a3b' }}
+    >
+      {mode === 'clear' ? (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z" />
+        </svg>
+      ) : (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="5" />
+          <path d="M12 1v2m0 18v2m11-11h-2M3 12H1m16.95 6.95-1.41-1.41M6.34 6.34 4.93 4.93m12.02 0-1.41 1.41M6.34 17.66l-1.41 1.41" />
+        </svg>
+      )}
+    </button>
+  );
+
   return (
     <header
       className="fixed top-0 w-full z-50 border-b shadow-md"
@@ -78,6 +99,10 @@ const Header = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
+          {/* Desktop theme switcher (direita do header) */}
+          <div className="hidden lg:flex absolute right-8 top-1/2 -translate-y-1/2 z-10">
+            <ThemeSwitcher />
+          </div>
           <Link to="/" className="flex items-center gap-4 group">
             <LogoHM size={48} rounded={true} bg={mode === 'clear' ? '#394a66' : 'var(--color-brand)'} />
             <div className="flex flex-col ml-2">
@@ -195,24 +220,8 @@ const Header = () => {
             >
               {isMobileMenuOpen ? <X size={28} strokeWidth={2.2} /> : <Menu size={28} strokeWidth={2.2} />}
             </button>
-            {/* Modern theme toggle button */}
-            <button
-              onClick={() => setMode(mode === 'clear' ? 'dark' : 'clear')}
-              aria-label={mode === 'clear' ? 'Ativar modo escuro' : 'Ativar modo claro'}
-              className="ml-2 p-2 rounded-full border border-brand-primary bg-white/10 hover:bg-brand-success/20 transition focus-visible:ring-2 focus-visible:ring-brand-success"
-              style={mode === 'clear' ? { color: '#394a66', background: '#fff' } : { color: '#fff', background: '#232a3b' }}
-            >
-              {mode === 'clear' ? (
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z" />
-                </svg>
-              ) : (
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <circle cx="12" cy="12" r="5" />
-                  <path d="M12 1v2m0 18v2m11-11h-2M3 12H1m16.95 6.95-1.41-1.41M6.34 6.34 4.93 4.93m12.02 0-1.41 1.41M6.34 17.66l-1.41 1.41" />
-                </svg>
-              )}
-            </button>
+            {/* Modern theme toggle button (mobile) */}
+            <ThemeSwitcher />
           </div>
         </div>
       </div>

@@ -10,7 +10,7 @@ const ThemeContext = createContext({
 export const useTheme = () => useContext(ThemeContext);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [mode, setMode] = useState<ThemeMode>('clear');
+  const [mode, setMode] = useState<ThemeMode>('dark');
 
   useEffect(() => {
     const root = document.documentElement;
