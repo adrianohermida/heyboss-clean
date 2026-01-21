@@ -78,26 +78,30 @@ const Calculator: React.FC = () => {
             <div className="space-y-10 animate-fade-in">
               {/* Card de resultado */}
               <div className="flex flex-col sm:flex-row items-center gap-6 p-8 bg-white rounded-3xl shadow-2xl border border-[var(--color-border)]/10">
-                <div className={`flex items-center justify-center rounded-full shadow-lg ${result.isSuperendividado ? 'bg-[var(--color-error)]' : 'bg-[var(--color-success)]'} w-20 h-20`}>
-                  {result.isSuperendividado ? <AlertCircle size={44} className="text-white" /> : <CheckCircle2 size={44} className="text-white" />}
-                </div>
-                <div className="flex-1 text-center sm:text-left">
-                  <h3 className="text-2xl font-extrabold mb-2 text-[#394a66]">Situação Financeira</h3>
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 justify-center sm:justify-start">
-                    <span className={`inline-block px-3 py-1 rounded-full text-base font-bold ${result.isSuperendividado ? 'bg-[var(--color-error)]/10 text-[var(--color-error)]' : 'bg-[var(--color-success)]/10 text-[var(--color-success)]'}`}>
-                      {result.isSuperendividado ? 'Superendividamento Detectado' : 'Saudável'}
-                    </span>
-                    <span className="inline-block px-2 py-1 rounded bg-gray-100 text-[var(--color-brand)] font-bold text-base ml-1">
-                      {result.percentage.toFixed(1)}%
-                    </span>
-                  </div>
-                  <p className="mt-2 text-[var(--color-text-secondary)] text-base">
-                    {result.isSuperendividado
-                      ? <>Atenção! Suas dívidas comprometem <span className="font-bold text-[var(--color-error)]">{result.percentage.toFixed(1)}%</span> da sua renda (limite saudável: 30%).</>
-                      : <>Parabéns! Suas dívidas estão dentro do limite saudável (30%).</>
-                    }
-                  </p>
-                </div>
+                {result && (
+                  <>
+                    <div className={`flex items-center justify-center rounded-full shadow-lg ${result.isSuperendividado ? 'bg-[var(--color-error)]' : 'bg-[var(--color-success)]'} w-20 h-20`}>
+                      {result.isSuperendividado ? <AlertCircle size={44} className="text-white" /> : <CheckCircle2 size={44} className="text-white" />}
+                    </div>
+                    <div className="flex-1 text-center sm:text-left">
+                      <h3 className="text-2xl font-extrabold mb-2 text-[#394a66]">Situação Financeira</h3>
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 justify-center sm:justify-start">
+                        <span className={`inline-block px-3 py-1 rounded-full text-base font-bold ${result.isSuperendividado ? 'bg-[var(--color-error)]/10 text-[var(--color-error)]' : 'bg-[var(--color-success)]/10 text-[var(--color-success)]'}`}>
+                          {result.isSuperendividado ? 'Superendividamento Detectado' : 'Saudável'}
+                        </span>
+                        <span className="inline-block px-2 py-1 rounded bg-gray-100 text-[var(--color-brand)] font-bold text-base ml-1">
+                          {result.percentage.toFixed(1)}%
+                        </span>
+                      </div>
+                      <p className="mt-2 text-[var(--color-text-secondary)] text-base">
+                        {result.isSuperendividado
+                          ? <>Atenção! Suas dívidas comprometem <span className="font-bold text-[var(--color-error)]">{result.percentage.toFixed(1)}%</span> da sua renda (limite saudável: 30%).</>
+                          : <>Parabéns! Suas dívidas estão dentro do limite saudável (30%).</>
+                        }
+                      </p>
+                    </div>
+                  </>
+                )}
               </div>
               {/* Cards de valores */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
