@@ -40,7 +40,7 @@ const Hero: React.FC = () => {
             </div>
             <div className="flex items-center gap-6 justify-center lg:justify-start pt-4">
                 <div className="flex -space-x-3">
-                  <img src="/asets/avatars/avatar1.png" className="w-10 h-10 rounded-full border-2 border-[#00d969] object-cover bg-white shadow" alt="Avatar 1" />
+                  <img src="/assets/avatars/avatar1.png" className="w-10 h-10 rounded-full border-2 border-[#00d969] object-cover bg-white shadow" alt="Avatar 1" />
                   <img src="/assets/avatars/avatar2.png" className="w-10 h-10 rounded-full border-2 border-[#00d969] object-cover bg-white shadow" alt="Avatar 2" />
                   <img src="/assets/avatars/avatar3.png" className="w-10 h-10 rounded-full border-2 border-[#00d969] object-cover bg-white shadow" alt="Avatar 3" />
                   <img src="/assets/avatars/avatar4.png" className="w-10 h-10 rounded-full border-2 border-[#00d969] object-cover bg-white shadow" alt="Avatar 4" />
