@@ -189,9 +189,11 @@ const Header = () => {
               </Link>
             )}
           </nav>
+        </div>
+      </div>
 
-          {/* Mobile Menu Button */}
-          <div className="lg:hidden flex items-center gap-4">
+      {/* Mobile Menu Button */}
+      <div className="lg:hidden flex items-center gap-4">
             {/* Mobile theme switcher */}
             <button
               className="inline-flex items-center justify-center rounded-full p-2 border border-[var(--color-border)] bg-[var(--color-card)] hover:bg-[var(--color-cardElevated)] transition-colors"
