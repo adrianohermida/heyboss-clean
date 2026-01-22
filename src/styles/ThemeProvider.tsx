@@ -33,6 +33,11 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     Object.entries(themeColors).forEach(([key, value]) => {
       root.style.setProperty(`--color-${key}`, value);
     });
+    // Compatibilidade com variáveis antigas
+    root.style.setProperty('--bg-primary', themeColors.bg);
+    root.style.setProperty('--brand-primary', themeColors.brand);
+    root.style.setProperty('--brand-accent', themeColors.accent);
+    root.style.setProperty('--text-white', themeColors.text);
     // Adiciona tokens de status como variáveis globais
     root.style.setProperty('--color-success', themeColors.success);
     root.style.setProperty('--color-error', themeColors.error);

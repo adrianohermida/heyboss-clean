@@ -29,8 +29,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "deploy": "wrangler deploy"
+    "build": "vite build && cp -r dist/client/* docs/ || xcopy /E /Y dist\\client\\* docs\\ 1>nul 2>nul",
+    "deploy": "git add . && git commit -m 'deploy' && git push"
   },
   "type": "module"
 }
