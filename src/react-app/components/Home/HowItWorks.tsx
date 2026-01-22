@@ -9,7 +9,7 @@ const HowItWorks: React.FC = () => {
     <section className="py-24 bg-[var(--color-bg-alt)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
-          <h2 className={`text-3xl sm:text-4xl font-extrabold mb-4 ${mode === 'clear' ? 'text-[var(--color-brand-primary)]' : 'text-[var(--color-success)]'}`}>
+          <h2 className="text-3xl sm:text-4xl font-extrabold mb-4" style={{ color: mode === 'clear' ? 'var(--color-brand)' : 'var(--color-success)' }}>
             Como Funciona a Renegociação de Dívidas pela Lei 14.181/2021
           </h2>
           <p className="text-lg text-[var(--color-text-secondary)]/90">
@@ -29,7 +29,7 @@ const HowItWorks: React.FC = () => {
                 <step.icon className="text-[var(--color-success)]" size={36} />
               </div>
               <div className="space-y-2">
-                <h3 className={`text-lg font-bold ${mode === 'clear' ? 'text-[var(--color-brand-primary)]' : 'text-[var(--color-success)]'}`}>{step.title}</h3>
+                <h3 className="text-lg font-bold" style={{ color: mode === 'clear' ? 'var(--color-brand)' : 'var(--color-success)' }}>{step.title}</h3>
                 <p className="text-[var(--color-text)]/80 text-sm leading-relaxed px-4">{step.desc}</p>
               </div>
             </div>

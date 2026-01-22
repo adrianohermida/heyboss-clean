@@ -16,7 +16,7 @@ const FinalCTA: React.FC = () => {
     >
       {/* Removido overlay de degradê */}
       <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-        <h2 className="text-4xl sm:text-5xl font-extrabold mb-8 tracking-tight leading-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.18)]">
+        <h2 className="text-4xl sm:text-5xl font-extrabold mb-8 tracking-tight leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.18)]" style={{ color: mode === 'clear' ? 'var(--color-brand)' : '#fff' }}>
           Fale com um Advogado Especialista em Superendividamento Agora
         </h2>
         <p
