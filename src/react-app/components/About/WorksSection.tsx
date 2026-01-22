@@ -8,29 +8,29 @@ const works = [
 ];
 
 const WorksSection: React.FC = () => (
-  <section className="py-16 bg-[var(--color-bg-alt)]">
+  <section className="py-16 bg-[var(--color-cardElevated)]">
     <div className="max-w-5xl mx-auto px-4">
       <div className="text-center mb-10">
-        <div className="inline-flex items-center gap-2 bg-[var(--color-brand-primary)]/10 border border-[var(--color-brand-primary)]/20 px-4 py-2 rounded-full mb-2">
-          <BookOpen size={16} className="text-[var(--color-brand-primary)]" />
-          <span className="text-[var(--color-brand-primary)] text-xs font-bold uppercase tracking-widest">Autoridade Acadêmica</span>
+        <div className="inline-flex items-center gap-2 bg-[var(--color-success)]/10 border border-[var(--color-success)]/20 px-4 py-2 rounded-full mb-2">
+          <BookOpen size={16} className="text-[var(--color-success)]" />
+          <span className="text-[var(--color-success)] text-xs font-bold uppercase tracking-widest">Autoridade Acadêmica</span>
         </div>
-        <h2 className="text-2xl md:text-3xl font-extrabold text-[var(--color-brand)] mb-2">Obras e Publicações</h2>
-        <p className="text-[var(--color-text-secondary)]/80 text-xs md:text-base max-w-2xl mx-auto">Conhecimento técnico compartilhado para fortalecer a defesa do consumidor.</p>
+        <h2 className="text-2xl md:text-3xl font-extrabold mb-2" style={{ color: 'var(--color-success)' }}>Obras e Publicações</h2>
+        <p className="text-xs md:text-base max-w-2xl mx-auto" style={{ color: 'var(--color-brand)' }}>Conhecimento técnico compartilhado para fortalecer a defesa do consumidor.</p>
       </div>
       <div className="grid md:grid-cols-3 gap-6">
         {works.map((work, idx) => (
-          <div key={idx} className="group bg-white rounded-2xl overflow-hidden border border-[var(--color-border)]/20 shadow-lg hover:border-[var(--color-success)]/40 transition-all">
+          <div key={idx} className="group bg-[var(--color-white)] rounded-2xl overflow-hidden border border-[var(--color-border)]/20 shadow-lg hover:border-[var(--color-success)]/40 transition-all">
             <div className="aspect-[3/4] overflow-hidden relative">
               <img src={work.image} alt={work.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
               <div className="absolute inset-0 bg-gradient-to-t from-white to-transparent opacity-60" aria-hidden />
               <div className="absolute bottom-4 left-4 right-4">
                 <span className="bg-[var(--color-success)] text-white text-[10px] font-bold uppercase px-2 py-1 rounded mb-1 inline-block">{work.type}</span>
-                <h3 className="text-base font-bold text-[#394a66] leading-tight">{work.title}</h3>
+                <h3 className="text-base font-bold leading-tight" style={{ color: 'var(--color-success)' }}>{work.title}</h3>
               </div>
             </div>
             <div className="p-4">
-              <p className="text-[var(--color-text)] text-xs leading-relaxed mb-3">{work.desc}</p>
+              <p className="text-xs leading-relaxed mb-3" style={{ color: 'var(--color-brand)' }}>{work.desc}</p>
               <button className="text-[var(--color-success)] font-bold text-xs flex items-center gap-2 group-hover:gap-3 transition-all">
                 Saiba mais <ExternalLink size={14} />
               </button>

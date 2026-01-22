@@ -8,13 +8,13 @@ const stats = [
 ];
 
 const StatsSection: React.FC = () => (
-  <section className="py-16 bg-brand-primary relative overflow-hidden">
-    <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,#ffffff10_0%,transparent_50%)]" aria-hidden />
+  <section className="py-16 bg-[var(--color-success)] relative overflow-hidden">
+    <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,#F1F5ED10_0%,transparent_50%)]" aria-hidden />
     <div className="max-w-5xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center relative z-10">
       {stats.map((stat, i) => (
         <div key={i} className="space-y-1">
           <p className="text-2xl md:text-4xl font-black text-white drop-shadow">{stat.value}</p>
-          <p className="text-white/90 font-semibold uppercase tracking-widest text-xs" style={{letterSpacing: '0.08em'}}>{stat.label}</p>
+          <p className="text-[var(--color-white)] font-semibold uppercase tracking-widest text-xs" style={{letterSpacing: '0.08em'}}>{stat.label}</p>
         </div>
       ))}
     </div>

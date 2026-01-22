@@ -10,24 +10,24 @@ const timeline = [
 ];
 
 const Timeline: React.FC = () => (
-  <section className="py-16 bg-[var(--color-bg-alt)]">
+  <section className="py-16 bg-[var(--color-cardElevated)]">
     <div className="max-w-5xl mx-auto px-4">
       <div className="text-center mb-10">
-        <div className="inline-flex items-center gap-2 bg-[var(--color-brand-primary)]/10 border border-[var(--color-brand-primary)]/20 px-4 py-2 rounded-full mb-2">
-          <History size={16} className="text-[var(--color-brand-primary)]" />
-          <span className="text-[var(--color-brand-primary)] text-xs font-bold uppercase tracking-widest">Nossa Jornada</span>
+        <div className="inline-flex items-center gap-2 bg-[var(--color-success)]/10 border border-[var(--color-success)]/20 px-4 py-2 rounded-full mb-2">
+          <History size={16} className="text-[var(--color-success)]" />
+          <span className="text-[var(--color-success)] text-xs font-bold uppercase tracking-widest">Nossa Jornada</span>
         </div>
-        <h2 className="text-2xl md:text-3xl font-extrabold text-[var(--color-brand)] mb-2">Linha do Tempo</h2>
-        <p className="text-[var(--color-text-secondary)]/80 text-xs md:text-base max-w-2xl mx-auto">Uma trajetória dedicada à justiça e à proteção do consumidor brasileiro.</p>
+        <h2 className="text-2xl md:text-3xl font-extrabold mb-2" style={{ color: 'var(--color-success)' }}>Linha do Tempo</h2>
+        <p className="text-xs md:text-base max-w-2xl mx-auto" style={{ color: 'var(--color-brand)' }}>Uma trajetória dedicada à justiça e à proteção do consumidor brasileiro.</p>
       </div>
       <div className="space-y-8">
         {timeline.map((item, idx) => (
           <div key={idx} className={`flex flex-col md:flex-row items-center gap-4 ${idx % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
             <div className="flex-1 w-full md:w-auto">
-              <div className={`bg-white p-4 md:p-6 rounded-2xl border border-[var(--color-border)]/20 shadow-lg hover:border-[var(--color-brand-primary)]/40 transition-all ${idx % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
+              <div className={`bg-[var(--color-white)] p-4 md:p-6 rounded-2xl border border-[var(--color-border)]/20 shadow-lg hover:border-[var(--color-success)]/40 transition-all ${idx % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
                 <span className="text-[var(--color-success)] font-black text-lg md:text-2xl mb-1 block">{item.year}</span>
-                <h3 className="text-base md:text-xl font-bold text-[#394a66] mb-1">{item.title}</h3>
-                <p className="text-[var(--color-text)] text-xs md:text-sm leading-relaxed">{item.desc}</p>
+                <h3 className="text-base md:text-xl font-bold" style={{ color: 'var(--color-success)' }}>{item.title}</h3>
+                <p className="text-xs md:text-sm leading-relaxed" style={{ color: 'var(--color-brand)' }}>{item.desc}</p>
               </div>
             </div>
             <div className="relative z-10 flex items-center justify-center">
