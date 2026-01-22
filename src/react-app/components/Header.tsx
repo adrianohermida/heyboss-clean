@@ -17,7 +17,7 @@ const Header = () => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
+            <a href="https://hmdesk.freshdesk.com/support/tickets/new" target="_blank" rel="noopener noreferrer" className="transition-colors text-sm font-semibold hover:text-[var(--color-accent)]" style={{ color: mode === 'clear' ? 'var(--color-brand)' : 'var(--color-success)' }}>Contato</a>
   const adminEmails = [
     'contato@hermidamaia.adv.br',
     'adrianohermida@gmail.com',
@@ -89,15 +89,16 @@ const Header = () => {
                   opacity: 1,
                   fontFamily: 'inherit',
                   letterSpacing: 2,
-                }}
+              <a 
+                href="https://hmdesk.freshdesk.com/support/home" 
+                target="_blank" rel="noopener noreferrer"
+                className="px-6 py-2.5 rounded-full text-sm font-bold transition-all flex items-center gap-2 focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] border border-white/20 bg-white hover:bg-[var(--color-accent)] hover:text-white shadow-md"
+                style={{ color: 'var(--color-brand)' }}
+                aria-label="Ir para login"
               >
-                Defesa do Superendividado
-              </span>
-            </div>
-          </Link>
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
-            <Link to="/" className="transition-colors text-sm font-semibold hover:text-[var(--color-accent)]" style={{ color: mode === 'clear' ? 'var(--color-brand)' : 'var(--color-success)' }}>Início</Link>
+                <User size={16} />
+                Login
+              </a>
             <Link to="/about2" className="transition-colors text-sm font-semibold hover:text-[var(--color-accent)]" style={{ color: mode === 'clear' ? 'var(--color-brand)' : 'var(--color-success)' }}>Sobre</Link>
             <a href="/#serviços" className="transition-colors text-sm font-semibold hover:text-[var(--color-accent)]" style={{ color: mode === 'clear' ? 'var(--color-brand)' : 'var(--color-success)' }}>Serviços</a>
             <Link to="/blog" className="transition-colors text-sm font-semibold hover:text-[var(--color-accent)]" style={{ color: mode === 'clear' ? 'var(--color-brand)' : 'var(--color-success)' }}>Blog</Link>

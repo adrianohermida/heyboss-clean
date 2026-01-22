@@ -48,10 +48,10 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-bold mb-6">Links Úteis</h4>
             <ul className="space-y-4 text-sm text-white">
-              <li><Link to="/sobre" className="hover:text-[var(--color-success)] transition-colors">Sobre o Escritório</Link></li>
-              <li><a href="#calculadora" className="hover:text-[var(--color-success)] transition-colors">Calculadora Gratuita</a></li>
-              <li><Link to="/blog" className="hover:text-[var(--color-success)] transition-colors">Blog e Notícias</Link></li>
-              <li><Link to="/contato" className="hover:text-[var(--color-success)] transition-colors">Agendar Consulta</Link></li>
+                <li><a href="https://hmdesk.freshdesk.com/support/home" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-success)] transition-colors">Central de Ajuda</a></li>
+                <li><a href="https://hmdesk.freshdesk.com/support/tickets/new" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-success)] transition-colors">Enviar ticket</a></li>
+                <li><a href="https://comunica.pje.jus.br/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-success)] transition-colors">Consulta CNJ</a></li>
+                <li><a href="https://www.cnj.jus.br/poder-judiciario/tribunais/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-success)] transition-colors">Página dos Tribunais</a></li>
             </ul>
           </div>
 

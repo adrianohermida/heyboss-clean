@@ -25,16 +25,7 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const { mode } = useTheme();
 
-  useEffect(() => {
-    const sessionCheck = async () => {
-      const { supabase } = await import('../../supabaseClient');
-      const { data } = await supabase.auth.getSession();
-      if (data.session) {
-        navigate('/dashboard', { replace: true });
-      }
-    };
-    sessionCheck();
-  }, [navigate]);
+  // Permitir acesso público à página de login sem redirecionamento automático
 
   return (
     <>
