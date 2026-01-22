@@ -187,18 +187,8 @@ const Header = () => {
                 <User size={16} />
                 Login
               </Link>
-              ) : (
-                <Link 
-                  to="/login" 
-                  className="px-6 py-2.5 rounded-full text-sm font-bold transition-all flex items-center gap-2 focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] border border-white/20 bg-white hover:bg-[var(--color-accent)] hover:text-white shadow-md"
-                  style={{ color: 'var(--color-brand)' }}
-                  aria-label="Ir para login"
-                >
-                  <User size={16} />
-                  Login
-                </Link>
-              )}
-            </nav>
+            )}
+          </nav>
 
           {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center gap-4">
