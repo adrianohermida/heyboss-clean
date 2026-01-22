@@ -18,19 +18,20 @@ const Header = () => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-              <>
-                <span
-                  className="text-xs font-semibold uppercase tracking-wider"
-                  style={{
-                    color: mode === 'clear' ? 'var(--color-success)' : '#fff',
-                    opacity: 1,
-                    fontFamily: 'inherit',
-                    letterSpacing: 2,
-                  }}
-                >
-                  Defesa do Superendividado
-                </span>
-                <nav className="flex items-center gap-6 ml-8">
+  return (
+    <header>
+        <span
+          className="text-xs font-semibold uppercase tracking-wider"
+          style={{
+            color: mode === 'clear' ? 'var(--color-success)' : '#fff',
+            opacity: 1,
+            fontFamily: 'inherit',
+            letterSpacing: 2,
+          }}
+        >
+          Defesa do Superendividado
+        </span>
+        <nav className="flex items-center gap-6 ml-8">
               <Link to="/about2" className="transition-colors text-sm font-semibold hover:text-[var(--color-accent)]" style={{ color: mode === 'clear' ? 'var(--color-brand)' : 'var(--color-success)' }}>Sobre</Link>
               <a href="/#serviços" className="transition-colors text-sm font-semibold hover:text-[var(--color-accent)]" style={{ color: mode === 'clear' ? 'var(--color-brand)' : 'var(--color-success)' }}>Serviços</a>
               <Link to="/blog" className="transition-colors text-sm font-semibold hover:text-[var(--color-accent)]" style={{ color: mode === 'clear' ? 'var(--color-brand)' : 'var(--color-success)' }}>Blog</Link>
@@ -52,49 +53,46 @@ const Header = () => {
                   </div>
                   <span className="text-sm font-medium hidden xl:inline" style={{ color: 'var(--color-brand)' }}>{user.name || user.email.split('@')[0]}</span>
                   <ChevronDown size={16} className={`transition-transform ${isMenuOpen ? 'rotate-180' : ''}`} style={{ color: 'var(--color-brand)', opacity: 0.5 }} />
-                </button>
-
-                {isMenuOpen && (
-                  <div className="absolute right-0 mt-2 w-56 bg-brand-elevated border border-white/10 rounded-2xl shadow-2xl py-2 animate-in fade-in zoom-in duration-200">
-                    <div className="px-4 py-2 border-b border-white/5 mb-2">
-                      <p className="font-bold text-sm truncate" style={mode === 'clear' ? { color: '#394a66' } : { color: '#fff' }}>{user.name || 'Usuário'}</p>
-                      <p className="text-xs truncate" style={mode === 'clear' ? { color: '#394a66', opacity: 0.5 } : { color: '#fff', opacity: 0.4 }}>{user.email}</p>
-                    </div>
-                    
-                    {isAdmin && (
-                      <Link 
-                        to="/dashboard" 
-                        onClick={() => setIsMenuOpen(false)}
-                        className="flex items-center gap-3 px-4 py-3 text-sm font-bold hover:bg-brand-primary/10 transition-all border-b border-white/5"
-                        style={mode === 'clear' ? { color: '#394a66' } : { color: '#0d9c6e' }}
-                      >
-                        <Shield size={18} />
-                        Painel Administrativo
-                      </Link>
-                    )}
-                    
-                    <Link 
-                      to="/perfil" 
-                      onClick={() => setIsMenuOpen(false)}
-                      className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-white/5 transition-all"
-                      style={mode === 'clear' ? { color: '#394a66', opacity: 0.8 } : { color: '#fff', opacity: 0.7 }}
-                    >
-                      <User size={16} />
-                      Meu Perfil
-                    </Link>
-
-                    <Link 
-                      to="/account" 
-                      onClick={() => setIsMenuOpen(false)}
-                      className="flex items-center gap-3 px-4 py-3 text-sm hover:bg-white/5 transition-all"
-                      style={mode === 'clear' ? { color: '#394a66', opacity: 0.8 } : { color: '#fff', opacity: 0.7 }}
-                    >
-                      <LayoutDashboard size={18} />
-                      Meu Painel (Cliente)
-                    </Link>
-
+                <header>
+                  <span
+                    className="text-xs font-semibold uppercase tracking-wider"
+                    style={{
+                      color: mode === 'clear' ? 'var(--color-success)' : '#fff',
+                      opacity: 1,
+                      fontFamily: 'inherit',
+                      letterSpacing: 2,
+                    }}
+                  >
+                    Defesa do Superendividado
+                  </span>
+                  <div className="flex items-center">
+                    <nav className="flex items-center gap-6 ml-8">
+                      <Link to="/about2" className="transition-colors text-sm font-semibold hover:text-[var(--color-accent)]" style={{ color: mode === 'clear' ? 'var(--color-brand)' : 'var(--color-success)' }}>Sobre</Link>
+                      <a href="/#serviços" className="transition-colors text-sm font-semibold hover:text-[var(--color-accent)]" style={{ color: mode === 'clear' ? 'var(--color-brand)' : 'var(--color-success)' }}>Serviços</a>
+                      <Link to="/blog" className="transition-colors text-sm font-semibold hover:text-[var(--color-accent)]" style={{ color: mode === 'clear' ? 'var(--color-brand)' : 'var(--color-success)' }}>Blog</Link>
+                      <Link to="/contact2" className="transition-colors text-sm font-semibold hover:text-[var(--color-accent)]" style={{ color: mode === 'clear' ? 'var(--color-brand)' : 'var(--color-success)' }}>Contato</Link>
+                      {user ? (
+                        <div className="relative" ref={menuRef}>
+                          {/* ...user menu... */}
+                        </div>
+                      ) : (
+                        <Link 
+                          to="/login" 
+                          className="px-6 py-2.5 rounded-full text-sm font-bold transition-all flex items-center gap-2 focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] border border-white/20 bg-white hover:bg-[var(--color-accent)] hover:text-white shadow-md"
+                          style={{ color: 'var(--color-brand)' }}
+                          aria-label="Ir para login"
+                        >
+                          <User size={16} />
+                          Login
+                        </Link>
+                      )}
+                    </nav>
+                    {/* End nav, close flex container */}
+                  </div>
+                  <div className="lg:hidden flex items-center gap-4">
+                    <LayoutDashboard size={18} />
+                    Meu Painel (Cliente)
                     <div className="h-px bg-white/5 my-2" />
-                    
                     <button 
                       onClick={handleLogout}
                       className="w-full flex items-center gap-3 px-4 py-3 text-sm text-red-400 hover:text-red-300 hover:bg-red-500/5 transition-all"
@@ -118,34 +116,30 @@ const Header = () => {
             )}
           </nav>
         </div>
-      </div>
-
-      {/* Mobile Menu Button */}
-      <div className="lg:hidden flex items-center gap-4">
-            {/* Mobile theme switcher */}
-            <button
-              className="inline-flex items-center justify-center rounded-full p-2 border border-[var(--color-border)] bg-[var(--color-card)] hover:bg-[var(--color-cardElevated)] transition-colors"
-              aria-label="Alternar modo de cor"
-              onClick={() => setMode(mode === 'dark' ? 'clear' : 'dark')}
-            >
-              {mode === 'dark' ? <Sun size={22} className="text-[var(--color-success)]" /> : <Moon size={22} className="text-[var(--color-brand-primary)]" />}
-            </button>
-            {user && (
-              <Link to={isAdmin ? "/dashboard" : "/portal"} className="w-10 h-10 rounded-full bg-brand-primary flex items-center justify-center text-white font-bold text-xs">
-                {user.name?.[0] || user.email?.[0].toUpperCase()}
-              </Link>
-            )}
-            <button 
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label={isMobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
-              className="p-2 focus-visible:ring-2 focus-visible:ring-brand-primary"
-              style={mode === 'clear' ? { color: '#394a66' } : { color: '#fff', opacity: 0.95 }}
-            >
-              {isMobileMenuOpen ? <X size={28} strokeWidth={2.2} /> : <Menu size={28} strokeWidth={2.2} />}
-            </button>
-            {/* Modern theme toggle button (mobile) - removed */}
-          </div>
-
+        <div className="lg:hidden flex items-center gap-4">
+          {/* Mobile theme switcher */}
+          <button
+            className="inline-flex items-center justify-center rounded-full p-2 border border-[var(--color-border)] bg-[var(--color-card)] hover:bg-[var(--color-cardElevated)] transition-colors"
+            aria-label="Alternar modo de cor"
+            onClick={() => setMode(mode === 'dark' ? 'clear' : 'dark')}
+          >
+            {mode === 'dark' ? <Sun size={22} className="text-[var(--color-success)]" /> : <Moon size={22} className="text-[var(--color-brand-primary)]" />}
+          </button>
+          {user && (
+            <Link to={isAdmin ? "/dashboard" : "/portal"} className="w-10 h-10 rounded-full bg-brand-primary flex items-center justify-center text-white font-bold text-xs">
+              {user.name?.[0] || user.email?.[0].toUpperCase()}
+            </Link>
+          )}
+          <button 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
+            className="p-2 focus-visible:ring-2 focus-visible:ring-brand-primary"
+            style={mode === 'clear' ? { color: '#394a66' } : { color: '#fff', opacity: 0.95 }}
+          >
+            {isMobileMenuOpen ? <X size={28} strokeWidth={2.2} /> : <Menu size={28} strokeWidth={2.2} />}
+          </button>
+          {/* Modern theme toggle button (mobile) - removed */}
+        </div>
         {/* Mobile Menu Overlay */}
         {isMobileMenuOpen && (
           <div className={`lg:hidden fixed inset-0 top-20 z-40 animate-in slide-in-from-top duration-300 border-t border-white/5`} style={mode === 'clear' ? { background: '#fff' } : { background: '#181c2a', backdropFilter: 'blur(8px)' }}>
@@ -167,7 +161,6 @@ const Header = () => {
                       {user.name?.[0] || user.email?.[0].toUpperCase()}
                     </div>
                     <div>
-                      <p className="font-bold text-sm" style={mode === 'clear' ? { color: '#394a66' } : { color: '#fff' }}>{user.name || user.email.split('@')[0]}</p>
                       <p className="text-xs" style={mode === 'clear' ? { color: '#394a66', opacity: 0.4 } : { color: '#fff', opacity: 0.4 }}>{user.email}</p>
                     </div>
                   </div>
@@ -200,14 +193,16 @@ const Header = () => {
                       <User size={20} />
                       Meu Perfil
                     </Link>
+                  </div>
                 </div>
               )}
             </nav>
           </div>
         )}
-      </div>
-    </header>
-  </>);
+      </header>
+    {/* Fragment wrapper moved outside header for correct nesting */}
+    </>
+  );
 }
 
 export default Header;
