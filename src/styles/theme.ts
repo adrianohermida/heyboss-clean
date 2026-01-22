@@ -18,14 +18,14 @@ export const colors = {
     info: '#1976d2', // azul info
   },
   dark: {
-    bg: '#173D34', // fundo escuro verde matriz
+    bg: '#10181B', // fundo principal ainda mais escuro
     brand: '#173D34', // matriz branding
     accent: '#00d969', // destaque vibrante
-    text: '#F1F5ED', // texto claro (fundo escuro)
-    card: '#173D34', // cards escuros
-    cardElevated: '#223F36', // cards elevados escuros (um tom acima do brand)
-    border: '#223F36',
-    footerBg: '#173D34',
+    text: '#fff', // texto principal branco puro
+    card: 'rgba(23,61,52,0.92)', // cards escuros com leve transparência
+    cardElevated: 'rgba(34,63,54,0.98)', // cards elevados com mais destaque
+    border: 'rgba(0,217,105,0.10)', // borda verde sutil
+    footerBg: '#10181B',
     white: '#F1F5ED', // fundo alternado claro
     success: '#00d969', // verde sucesso
     error: '#ff6659', // vermelho erro escuro
