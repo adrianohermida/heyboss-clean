@@ -14,6 +14,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   useEffect(() => {
     const root = document.documentElement;
+    const html = document.querySelector('html');
     const themeColors = colors[mode];
     Object.entries(themeColors).forEach(([key, value]) => {
       root.style.setProperty(`--color-${key}`, value);
@@ -29,8 +30,14 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     // Aplica fundo e cor de texto globalmente (body e html)
     document.body.style.backgroundColor = themeColors.bg;
     document.body.style.color = themeColors.text;
+    if (html) {
+      html.style.backgroundColor = themeColors.bg;
+      html.style.color = themeColors.text;
+      html.style.transition = 'background 0.4s, color 0.4s';
+    }
     root.style.backgroundColor = themeColors.bg;
     root.style.color = themeColors.text;
+    root.style.transition = 'background 0.4s, color 0.4s';
   }, [mode]);
 
   return (
