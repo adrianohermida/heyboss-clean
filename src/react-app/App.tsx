@@ -28,10 +28,10 @@ const AppointmentsPage = lazy(() => import('./pages/AppointmentsPage'))
 const AuthCallback = lazy(() => import('./pages/AuthCallback'))
 
 const LoadingFallback = () => (
-  <div className="flex items-center justify-center min-h-screen bg-slate-900">
+  <div className="flex items-center justify-center min-h-screen" style={{ background: '#081a13' }}>
     <div className="text-center">
-      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mx-auto mb-4"></div>
-      <p className="text-white">Carregando...</p>
+      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 mx-auto mb-4" style={{ borderColor: '#00d969', borderTopColor: '#00d969', borderBottomColor: '#00d969' }}></div>
+      <p style={{ color: '#00d969' }}>Carregando...</p>
     </div>
   </div>
 )

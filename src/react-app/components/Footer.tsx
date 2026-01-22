@@ -46,12 +46,13 @@ export default function Footer() {
 
           {/* Links úteis */}
           <div>
-            <h4 className="text-white font-bold mb-6">Links Úteis</h4>
+            <h4 className="text-white font-bold mb-6">Links úteis</h4>
             <ul className="space-y-4 text-sm text-white">
-                <li><a href="https://hmdesk.freshdesk.com/support/home" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-success)] transition-colors">Central de Ajuda</a></li>
-                <li><a href="https://hmdesk.freshdesk.com/support/tickets/new" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-success)] transition-colors">Enviar ticket</a></li>
-                <li><a href="https://comunica.pje.jus.br/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-success)] transition-colors">Consulta CNJ</a></li>
-                <li><a href="https://www.cnj.jus.br/poder-judiciario/tribunais/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-success)] transition-colors">Página dos Tribunais</a></li>
+              <li><a href="https://hmdesk.freshdesk.com/support/home" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-success)] transition-colors">Central de Ajuda</a></li>
+              <li><a href="https://hmdesk.freshdesk.com/support/tickets/new" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-success)] transition-colors">Enviar ticket</a></li>
+              <li><a href="https://comunica.pje.jus.br/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-success)] transition-colors">Consulta CNJ</a></li>
+              <li><a href="https://www.cnj.jus.br/poder-judiciario/tribunais/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-success)] transition-colors">Página dos Tribunais</a></li>
+              <li><a href="https://adrianohermida.jusbrasil.com.br/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-success)] transition-colors">Meu Jusbrasil</a></li>
             </ul>
           </div>
 
