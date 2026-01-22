@@ -89,16 +89,10 @@ const Header = () => {
                   opacity: 1,
                   fontFamily: 'inherit',
                   letterSpacing: 2,
-              <a 
-                href="https://hmdesk.freshdesk.com/support/home" 
-                target="_blank" rel="noopener noreferrer"
-                className="px-6 py-2.5 rounded-full text-sm font-bold transition-all flex items-center gap-2 focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] border border-white/20 bg-white hover:bg-[var(--color-accent)] hover:text-white shadow-md"
-                style={{ color: 'var(--color-brand)' }}
-                aria-label="Ir para login"
+                }}
               >
-                <User size={16} />
-                Login
-              </a>
+                Defesa do Superendividado
+              </span>
             <Link to="/about2" className="transition-colors text-sm font-semibold hover:text-[var(--color-accent)]" style={{ color: mode === 'clear' ? 'var(--color-brand)' : 'var(--color-success)' }}>Sobre</Link>
             <a href="/#serviços" className="transition-colors text-sm font-semibold hover:text-[var(--color-accent)]" style={{ color: mode === 'clear' ? 'var(--color-brand)' : 'var(--color-success)' }}>Serviços</a>
             <Link to="/blog" className="transition-colors text-sm font-semibold hover:text-[var(--color-accent)]" style={{ color: mode === 'clear' ? 'var(--color-brand)' : 'var(--color-success)' }}>Blog</Link>
